@@ -416,3 +416,221 @@ private UserVO convertFromModel(UserModel userModel) {
 }
 ```
 
+### 3.2 定义通用的返回对象——返回正确信息
+
+之前的程序一旦出错，只会返回一个白页，并没有错误信息，需要返回一个有意义的错误信息。
+
+1.增加一个response包。创建CommonReturnType类
+
+```java
+public class CommonReturnType {
+
+    //表明对应请求的返回处理结果“success”或“fail”
+    private String status;
+
+    //若status=success，则data内返回前端需要的json数据
+    //若status=fail，则data内使用通用的错误码格式
+    private Object data;
+
+    //定义一个通用的创建方法
+    public static CommonReturnType create(Object result) {
+        return CommonReturnType.create(result, "success");
+    }
+
+    public static CommonReturnType create(Object result,String status) {
+        CommonReturnType type = new CommonReturnType();
+        type.setStatus(status);
+        type.setData(result);
+        return type;
+    }
+}
+```
+
+2.改造返回值
+
+```java
+public CommonReturnType getUser(@RequestParam(name = "id") Integer id) {
+    //调用service服务获取对应id的用户对象并返回给前端
+    UserModel userModel = userService.getUserById(id);
+
+    //将核心领域模型用户对象转化为可供UI使用的viewobject
+    UserVO userVO = convertFromModel(userModel);
+    
+    //返回通用对象
+    return CommonReturnType.create(userVO);
+}
+```
+
+### 3.3 定义通用的返回对象——返回错误信息
+
+1.创建error包
+
+2.创建commonError接口
+
+```
+public interface CommonError {
+    public int getErrCode();
+
+    public String getErrMsg();
+
+    public CommonError setErrMsg(String errMs);
+}
+```
+
+3.创建实现类
+
+```java
+public enum EmBusinessError implements CommonError {
+    //通用错误类型00001
+    PARAMETER_VALIDATION_ERROR(00001, "参数不合法"),
+
+
+    //10000开头为用户信息相关错误定义
+    USER_NOT_EXIST(10001, "用户不存在")
+    ;
+
+    private EmBusinessError(int errCode, String errMsg) {
+        this.errCode = errCode;
+        this.errMsg = errMsg;
+    }
+
+    private int errCode;
+    private String errMsg;
+
+    @Override
+    public int getErrCode() {
+        return this.errCode;
+    }
+
+    @Override
+    public String getErrMsg() {
+        return this.errMsg;
+    }
+
+    @Override
+    public CommonError setErrMsg(String errMsg) {
+        this.errMsg = errMsg;
+        return this;
+    }
+}
+```
+
+4.包装器模式实现BusinessException类
+
+```java
+/包装器业务异常实现
+public class BusinessException extends Exception implements CommonError {
+
+    private CommonError commonError;
+
+    //直接接受EmBusinessError的传参用于构造业务异常
+    public BusinessException(CommonError commonError) {
+        super();
+        this.commonError = commonError;
+    }
+
+    //接收自定义errMsg的方式构造业务异常
+    public BusinessException(CommonError commonError, String errMsg) {
+        super();
+        this.commonError = commonError;
+        this.commonError.setErrMsg(errMsg);
+    }
+
+    @Override
+    public int getErrCode() {
+        return this.commonError.getErrCode();
+    }
+
+    @Override
+    public String getErrMsg() {
+        return this.commonError.getErrMsg();
+    }
+
+    @Override
+    public CommonError setErrMsg(String errMsg) {
+        this.commonError.setErrMsg(errMsg);
+        return this;
+    }
+}
+```
+
+5.抛出异常类
+
+```java
+public CommonReturnType getUser(@RequestParam(name = "id") Integer id) throws BusinessException {
+    //调用service服务获取对应id的用户对象并返回给前端
+    UserModel userModel = userService.getUserById(id);
+
+    //若获取的对应用户信息不存在
+    if (userModel == null) {
+        throw new BusinessException(EmBusinessError.USER_NOT_EXIST);
+    }
+    //将核心领域模型用户对象转化为可供UI使用的viewobject
+    UserVO userVO = convertFromModel(userModel);
+
+    //返回通用对象
+    return CommonReturnType.create(userVO);
+}
+```
+
+### 3.4 定义通用的返回对象——异常处理
+
+1.定义exceptionHandler解决未被controller层吸收的exception
+
+```java
+public class BaseController {
+
+    //定义exceptionHandler解决未被controller层吸收的exception
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Object handlerException(HttpServletRequest request, Exception ex) {
+        Map<String, Object> responseData = new HashMap<>();
+        if (ex instanceof BusinessException) {
+            BusinessException businessException = (BusinessException) ex;
+            responseData.put("errCode", businessException.getErrCode());
+            responseData.put("errMsg", businessException.getErrMsg());
+        } else {
+            responseData.put("errCode", EmBusinessError.UNKNOWN_ERROR.getErrCode());
+            responseData.put("errMsg", EmBusinessError.UNKNOWN_ERROR.getErrMsg());
+        }
+        return CommonReturnType.create(responseData, "fail");
+    }
+
+}
+```
+
+### 3.5 用户模型管理——otp验证码获取
+
+```java
+public class UserController extends BaseController{
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private HttpServletRequest httpServletRequest;
+
+    //用户获取otp短信接口
+    @RequestMapping("/getotp")
+    @ResponseBody
+    public CommonReturnType getOtp(@RequestParam(name = "telphone") String telphone) {
+        //需要按照一定的规则生成OTP验证码
+        Random random = new Random();
+        int randomInt = random.nextInt(99999);
+        randomInt += 10000;
+        String otpCode = String.valueOf(randomInt);
+
+        //将OTP验证码同对应用户的手机号关联，使用httpsession的方式绑定手机号与OTPCDOE
+        httpServletRequest.getSession().setAttribute(telphone, otpCode);
+
+        //将OTP验证码通过短信通道发送给用户，省略
+        System.out.println("telphone=" + telphone + "&otpCode=" + otpCode);
+
+        return CommonReturnType.create(null);
+    }
+```
+
+测试，在控制台打印数据
+
+### 3.6 用户模型管理——Metronic模板简介
