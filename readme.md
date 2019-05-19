@@ -1053,3 +1053,296 @@ try {
 }
 ```
 
+###	3.9 用户模型管理——用户登录功能实现
+
+1.UserController中的用户登录接口
+
+```java
+
+    //用户登录接口
+    @RequestMapping(value = "/login", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+    @ResponseBody
+    public CommonReturnType login(@RequestParam(name = "telphone") String telphone,
+                                  @RequestParam(name = "password") String password) throws BusinessException, UnsupportedEncodingException, NoSuchAlgorithmException {
+        //入参校验
+        if (StringUtils.isEmpty(telphone) || StringUtils.isEmpty(password)) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+        }
+
+        //用户登录服务，用来校验用户登录是否合法
+        //用户加密后的密码
+        UserModel userModel = userService.validateLogin(telphone, this.EncodeByMd5(password));
+
+        //将登陆凭证加入到用户登录成功的session内
+        this.httpServletRequest.getSession().setAttribute("IS_LOGIN", true);
+        this.httpServletRequest.getSession().setAttribute("LOGIN_USER", userModel);
+
+        return CommonReturnType.create(null);
+
+    }
+```
+
+2.UserService中的校验登录方法
+
+```java
+    /*
+    telphone:用户注册手机
+    encrptPassowrd:用户加密后的密码
+     */
+    UserModel validateLogin(String telphone, String encrptPassword) throws BusinessException;
+```
+
+3.UserServiceImpl的登录方法实现
+
+```java
+    @Override
+    public UserModel validateLogin(String telphone, String encrptPassword) throws BusinessException {
+        //通过用户手机获取用户信息
+        UserDO userDO = userDOMapper.selectByTelphone(telphone);
+        if (userDO == null) {
+            throw new BusinessException(EmBusinessError.USER_LOOGIN_FAIL);
+        }
+        userPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+        UserModel userModel = convertFromDataObject(userDO, userPasswordDO);
+
+        //比对用户信息内加密的密码是否和传输进来的密码相匹配
+        if (StringUtils.equals(encrptPassword, userModel.getEncrptPassword())) {
+            throw new BusinessException(EmBusinessError.USER_LOOGIN_FAIL);
+        }
+
+        return userModel;
+    }
+```
+
+4.UserDOMapper.xml中的新建方法
+
+```xml
+<select id="selectByTelphone" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from user_info
+    where telphone = #{telphone,jdbcType=VARCHAR}
+</select>
+```
+
+5.UserDOMapper中建立映射
+
+```java
+//根据电话号码取得用户对象
+UserDO selectByTelphone(String telphone);
+```
+
+6.新建前端界面：login.html
+
+```html
+<body class="login">
+    <div class="content">
+        <h3 class="form-title">用户登录</h3>
+        <div class="form-group">
+            <label class="control-label">手机号</label>
+            <div>
+                <input class="form-control" type="text" placeholder="手机号" name="telphone" id="telphone"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">密码</label>
+            <div>
+                <input class="form-control" type="password" placeholder="密码" name="password" id="password"/>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn blue" id="login" type="submit">
+                登录
+            </button>
+            <button class="btn green" id="register" type="submit">
+                注册
+            </button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    jQuery(document).ready(function () {
+
+        //绑定注册按钮的click事件用于跳转到注册页面
+        $("#register").on("click",function () {
+            window.location.href = "getotp.html";
+        });
+
+        //绑定登录按钮的click事件用于登录
+        $("#login").on("click",function () {
+
+            var telphone=$("#telphone").val();
+            var password=$("#password").val();
+            if (telphone==null || telphone=="") {
+                alert("手机号不能为空");
+                return false;
+            }
+            if (password==null || password=="") {
+                alert("密码不能为空");
+                return false;
+            }
+
+            //映射到后端@RequestMapping(value = "/login", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+            $.ajax({
+                type:"POST",
+                contentType:"application/x-www-form-urlencoded",
+                url:"http://localhost:8080/user/login",
+                data:{
+                    "telphone":telphone,
+                    "password":password
+                },
+                //允许跨域请求
+                xhrFields:{withCredentials:true},
+                success:function (data) {
+                    if (data.status=="success") {
+                        alert("登录成功");
+                    }else {
+                        alert("登录失败，原因为" + data.data.errMsg);
+                    }
+                },
+                error:function (data) {
+                    alert("登录失败，原因为"+data.responseText);
+                }
+            });
+            return false;
+        });
+    });
+```
+
+###	3.10 优化校验规则
+
+1.查询maven仓库中是否由可用类库
+
+```xml
+<!--校验-->
+<dependency>
+  <groupId>org.hibernate</groupId>
+  <artifactId>hibernate-validator</artifactId>
+  <version>5.2.4.Final</version>
+</dependency>
+```
+
+2.对validator进行一个简单的封装
+
+新建validator的目录
+
+新建一个ValidationResult的类
+
+```java
+public class ValidationResult {
+    //校验结果是否有错
+    private boolean hasErrors = false;
+
+    //存放错误信息的map
+    private Map<String, String> errorMsgMap = new HashMap<>();
+
+    public boolean isHasErrors() {
+        return hasErrors;
+    }
+
+    public void setHasErrors(boolean hasErrors) {
+        this.hasErrors = hasErrors;
+    }
+
+    public Map<String, String> getErrorMsgMap() {
+        return errorMsgMap;
+    }
+
+    public void setErrorMsgMap(Map<String, String> errorMsgMap) {
+        this.errorMsgMap = errorMsgMap;
+    }
+
+    //实现通用的通过格式化字符串信息获取错误结果的msg方法
+    public String getErrMsg() {
+        return StringUtils.join(errorMsgMap.values().toArray(), ",");
+    }
+}
+```
+
+新建一个ValidatiorImpl的类
+
+```java
+@Component
+public class ValidatorImpl implements InitializingBean {
+
+    private Validator validator;
+
+    //实现校验方法并返回校验结果
+    public ValidationResult validate(Object bean) {
+        final ValidationResult result = new ValidationResult();
+        Set<ConstraintViolation<Object>> constraintViolationSet = validator.validate(bean);
+        if (constraintViolationSet.size() > 0) {
+            //有错误
+            result.setHasErrors(true);
+            constraintViolationSet.forEach(constraintViolation ->{
+                String errMsg = constraintViolation.getMessage();
+                String propertyName = constraintViolation.getPropertyPath().toString();
+                result.getErrorMsgMap().put(propertyName, errMsg);
+            });
+        }
+        return result;
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        //将hibernate validator通过工厂的初始化方式使其实例化
+        this.validator = Validation.buildDefaultValidatorFactory().getValidator();
+    }
+}
+```
+
+3.修改UserModel，基于注解的校验方式
+
+```java
+@NotBlank(message = "用户名不能为空")
+private String name;
+
+@NotNull(message = "性别不能填写")
+private Byte gender;
+
+@NotNull(message = "年龄不能不填写")
+@Min(value = 0, message = "年龄必须大于0岁")
+@Max(value = 150, message = "年龄必须小于150岁")
+private Integer age;
+
+@NotBlank(message = "手机号不能为空")
+private String telphone;
+private String regisitMode;
+private Integer thirdPartyId;
+
+@NotBlank(message = "密码不能为空")
+private String encrptPassword;
+```
+
+4.在UserServiceImpl中使用validator
+
+引入bean
+
+```java
+@Autowired
+private ValidatorImpl validator;
+```
+
+
+
+```java
+        //校验
+//        if (userModel == null) {
+//            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+//        }
+//        if (StringUtils.isEmpty(userModel.getName())
+//                || userModel.getGender() == null
+//                || userModel.getAge() == null
+//                || StringUtils.isEmpty(userModel.getTelphone())) {
+//            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+//        }
+
+        ValidationResult result = validator.validate(userModel);
+        if (result.isHasErrors()) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, result.getErrMsg());
+        }
+```
+
+以后做校验时只需要在model的属性上做注解即可

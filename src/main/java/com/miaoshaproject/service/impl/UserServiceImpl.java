@@ -51,20 +51,21 @@ public class UserServiceImpl implements UserService {
     @Transactional//声明事务
     public void register(UserModel userModel) throws BusinessException {
         //校验
-        if (userModel == null) {
-            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
-        }
-        if (StringUtils.isEmpty(userModel.getName())
-                || userModel.getGender() == null
-                || userModel.getAge() == null
-                || StringUtils.isEmpty(userModel.getTelphone())) {
-            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+//        if (userModel == null) {
+//            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+//        }
+//        if (StringUtils.isEmpty(userModel.getName())
+//                || userModel.getGender() == null
+//                || userModel.getAge() == null
+//                || StringUtils.isEmpty(userModel.getTelphone())) {
+//            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+//        }
+
+        ValidationResult result = validator.validate(userModel);
+        if (result.isHasErrors()) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, result.getErrMsg());
         }
 
-//        ValidationResult result = validator.validate(userModel);
-//        if (result.isHasErrors()) {
-//            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, result.getErrMsg());
-//        }
         //实现model->dataobject方法
         UserDO userDO = convertFromModel(userModel);
         //insertSelective相对于insert方法，不会覆盖掉数据库的默认值
@@ -81,6 +82,24 @@ public class UserServiceImpl implements UserService {
         userPasswordDOMapper.insertSelective(userPasswordDO);
 
         return;
+    }
+
+    @Override
+    public UserModel validateLogin(String telphone, String encrptPassword) throws BusinessException {
+        //通过用户手机获取用户信息
+        UserDO userDO = userDOMapper.selectByTelphone(telphone);
+        if (userDO == null) {
+            throw new BusinessException(EmBusinessError.USER_LOOGIN_FAIL);
+        }
+        userPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+        UserModel userModel = convertFromDataObject(userDO, userPasswordDO);
+
+        //比对用户信息内加密的密码是否和传输进来的密码相匹配
+        if (!StringUtils.equals(encrptPassword, userModel.getEncrptPassword())) {
+            throw new BusinessException(EmBusinessError.USER_LOOGIN_FAIL);
+        }
+
+        return userModel;
     }
 
     private userPasswordDO convertPasswordFromModel(UserModel userModel) {

@@ -20,7 +20,7 @@ public class ValidatorImpl implements InitializingBean {
 
     //实现校验方法并返回校验结果
     public ValidationResult validate(Object bean) {
-        final ValidationResult result = new ValidationResult();
+        ValidationResult result = new ValidationResult();
         Set<ConstraintViolation<Object>> constraintViolationSet = validator.validate(bean);
         if (constraintViolationSet.size() > 0) {
             //有错误
@@ -33,7 +33,6 @@ public class ValidatorImpl implements InitializingBean {
         }
         return result;
     }
-
 
     @Override
     public void afterPropertiesSet() throws Exception {
