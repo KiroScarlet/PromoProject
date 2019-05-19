@@ -110,6 +110,7 @@
                 success:function (data) {
                     if (data.status=="success") {
                         alert("注册成功");
+                        window.location.href = "login.html";
                     }else {
                         alert("注册失败，原因为" + data.data.errMsg);
                     }

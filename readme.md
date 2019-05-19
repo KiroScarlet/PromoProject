@@ -202,14 +202,14 @@ http://www.mybatis.org/generator/configreference/xmlconfig.html
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false"
-               这些属性是为了使得只生成简单查询的对应文件，去掉复杂查询的生成文件，因为一般开发中不太用的到
-        -->
+               这些属性是为了使得只生成简单查询的对应文件，去掉复杂查询的生成文件，因为一般开发中不太用的到-->
         <table tableName="user_info" domainObjectName="UserDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
+        <!--我这里的UserPasswordDO首字母忘记大写了，导致后面的UserPasswordDO和UserPasswordMapper都错了，不过后面才发现，不好改了，就这样吧，影响不大-->
         <table tableName="user_password" domainObjectName="userPasswordDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
@@ -220,6 +220,8 @@ http://www.mybatis.org/generator/configreference/xmlconfig.html
     </context>
 </generatorConfiguration>
 ```
+
+> ​	我这里的UserPasswordDO首字母忘记大写了，导致后面的UserPasswordDO和UserPasswordMapper都错了，不过后面才发现，不好改了，就这样吧，影响不大
 
 4.生成文件
 
@@ -1346,3 +1348,107 @@ private ValidatorImpl validator;
 ```
 
 以后做校验时只需要在model的属性上做注解即可
+
+##	第四章 商品模块开发
+
+###	4.1 商品模型管理——商品创建
+
+1.首先设计商品领域模型
+
+```java
+public class ItemModel {
+    private Integer id;
+
+    //商品名称
+    private String title;
+
+    //商品价格
+    private BigDecimal price;
+
+    //商品的库存
+    private Integer stock;
+
+    //商品的描述
+    private String description;
+
+    //商品的销量
+    private Integer sales;
+
+    //商品描述图片的url
+    private String imgUrl;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getSales() {
+        return sales;
+    }
+
+    public void setSales(Integer sales) {
+        this.sales = sales;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+}
+```
+
+2.设计数据库
+
+两张表：商品表和库存表
+
+3.修改pom文件
+
+```xml
+<!--允许移动生成的文件-->
+<verbose>true</verbose>
+<!--允许自动覆盖文件（生产环境中千万不要这样做）-->
+<overwrite>false</overwrite>
+```
+
+4.修改mybatis-generator配置文件
+
+添加两张表
+

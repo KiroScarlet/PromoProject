@@ -1,9 +1,9 @@
 package com.miaoshaproject.service.impl;
 
 import com.miaoshaproject.dao.UserDOMapper;
-import com.miaoshaproject.dao.userPasswordDOMapper;
+import com.miaoshaproject.dao.UserPasswordDOMapper;
 import com.miaoshaproject.dataobject.UserDO;
-import com.miaoshaproject.dataobject.userPasswordDO;
+import com.miaoshaproject.dataobject.UserPasswordDO;
 import com.miaoshaproject.error.BusinessException;
 import com.miaoshaproject.error.EmBusinessError;
 import com.miaoshaproject.service.UserService;
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     private UserDOMapper userDOMapper;
 
     @Autowired
-    private userPasswordDOMapper userPasswordDOMapper;
+    private UserPasswordDOMapper userPasswordDOMapper;
 
     @Autowired
     private ValidatorImpl validator;
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
         }
 
         //通过用户id获取对应的用户加密密码信息
-        userPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+        UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
 
         return convertFromDataObject(userDO, userPasswordDO);
     }
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
 
         userModel.setId(userDO.getId());
 
-        userPasswordDO userPasswordDO = convertPasswordFromModel(userModel);
+        UserPasswordDO userPasswordDO = convertPasswordFromModel(userModel);
         userPasswordDOMapper.insertSelective(userPasswordDO);
 
         return;
@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
         if (userDO == null) {
             throw new BusinessException(EmBusinessError.USER_LOOGIN_FAIL);
         }
-        userPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+        UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
         UserModel userModel = convertFromDataObject(userDO, userPasswordDO);
 
         //比对用户信息内加密的密码是否和传输进来的密码相匹配
@@ -102,11 +102,11 @@ public class UserServiceImpl implements UserService {
         return userModel;
     }
 
-    private userPasswordDO convertPasswordFromModel(UserModel userModel) {
+    private UserPasswordDO convertPasswordFromModel(UserModel userModel) {
         if (userModel == null) {
             return null;
         }
-        userPasswordDO userPasswordDO = new userPasswordDO();
+        UserPasswordDO userPasswordDO = new UserPasswordDO();
         userPasswordDO.setEncrptPassword(userModel.getEncrptPassword());
         userPasswordDO.setUserId(userModel.getId());
 
@@ -122,7 +122,7 @@ public class UserServiceImpl implements UserService {
         return userDO;
     }
 
-    private UserModel convertFromDataObject(UserDO userDO,userPasswordDO userPasswordDO) {
+    private UserModel convertFromDataObject(UserDO userDO,UserPasswordDO userPasswordDO) {
         if (userDO == null) {
             return null;
         }
