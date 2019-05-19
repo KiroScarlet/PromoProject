@@ -1,0 +1,107 @@
+@CHARSET "UTF-8";
+
+@media only screen and (min-width: 800px) {
+	.teamPopoverContentContainer{
+		width:300px;
+		padding:11px 6px 0px 6px;
+	}
+	.teamPopoverTeamIcon{
+		display:block;
+		float:left;
+		width:48px;
+		height:48px;
+	}
+	.teamPopoverTeamInfoContainer{
+		width:100%;
+		padding:0px 0 0 68px;
+	}
+	.teamPopoverTeamName > a,
+	.teamPopoverTeamName > a:link,
+	.teamPopoverTeamName > a:visited{
+		font-weight:bold;
+		color:black;
+		font-size:16px;
+	}
+	.teamPopoverTeamName > a:hover,
+	.teamPopoverTeamName > a:active{
+		text-decoration:underline;
+	}
+	
+	
+	.teamPopoverTeamWord{
+		font-size:13px;
+		color:#787878;
+		margin-top:3px;
+		line-height:1.6;
+	}
+	
+	.teamPopoverContentContainer .divider{
+		margin-top:18px;
+		width:100%;
+		background-color:#E6E6E6;
+	}
+	.teamPopoverContentCountInfoContainer{
+		padding:15px 0 6px 0;
+	}
+	
+
+	.teamPopoverContentCountInfo{
+		padding:3px 0px 3px 0px;
+		float:left;
+	}
+	
+	.teamPopoverContentArticleCountContainer{
+		text-align:center;
+		padding:0px 22px 0px 6px;
+		float:left;
+		border-right:1px solid #E6E6E6;
+		
+	}
+	.teamPopoverContentArticleCountContainer span{
+		text-align:center;
+		display:block;
+		margin-top:6px;
+		font-size:13px;
+		color:#989898;
+	}
+	.teamPopoverContentArticleCountContainer span:first-child{
+		font-weight:bold;
+		font-size:17px;
+		color:black;
+		margin-top:0px;
+	}
+	.teamPopoverContentFanCountContainer{
+		float:left;
+		text-align:center;
+		padding:0px 6px 0px 22px;
+		
+	}
+	.teamPopoverContentFanCountContainer span{
+		text-align:center;
+		display:block;
+		margin-top:6px;
+		font-size:13px;
+		color:#989898;
+	}
+	.teamPopoverContentFanCountContainer span:first-child{
+		font-weight:bold;
+		font-size:17px;
+		color:black;
+		margin-top:0px;
+	}
+	.teamPopoverFollowButton{
+		float:right;
+		font-size:13px;
+		margin-top:7px;
+	}
+	
+}
+
+
+
+
+
+@media only screen and (max-width: 800px) {
+
+	
+}

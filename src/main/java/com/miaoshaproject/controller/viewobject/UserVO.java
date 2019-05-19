@@ -7,7 +7,7 @@ package com.miaoshaproject.controller.viewobject;
 public class UserVO {
     private Integer id;
     private String name;
-    private Boolean gender;
+    private Byte gender;
     private Integer age;
     private String telphone;
 
@@ -27,11 +27,11 @@ public class UserVO {
         this.name = name;
     }
 
-    public Boolean getGender() {
+    public Byte getGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(Byte gender) {
         this.gender = gender;
     }
 

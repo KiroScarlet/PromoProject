@@ -1,0 +1,51 @@
+.img-modal-dialog-bg,.img-modal-dialog-bgDes{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 95;
+    min-height: 100%!important;
+    width: 100%!important;
+    height: 100%!important;
+    overflow: visible;
+    background: #666;
+}
+
+.img-modal-wrapper,.img-modal-wrapperDes{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+	position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.img-modal-dialog,.img-modal-dialogDes{
+    z-index: 99;
+    /*width: 400px;*/
+    border-radius: 10px;
+    border: 1px solid #888;
+    box-shadow: 0 0 80px 0 rgba(0,0,0,.4);
+    background: #fff;
+    text-align: left;
+}
+
+.img-modal-dialog-title,.img-modal-dialog-titleDes{
+	padding: 10px 20px 0 0;
+}
+
+.img-modal-dialog-content,.img-modal-dialog-contentDes{
+	padding: 50px;
+}
+
+.img-modal-dialog-button,.img-modal-dialog-buttonDes{
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.img-modal-dialog-button button{
+	width: 90px;
+}

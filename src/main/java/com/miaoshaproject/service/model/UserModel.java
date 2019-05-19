@@ -1,18 +1,33 @@
 package com.miaoshaproject.service.model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author KiroScarlet
  * @date 2019-05-15  -16:50
  */
 public class UserModel {
     private Integer id;
+    @NotBlank(message = "用户名不能为空")
     private String name;
-    private Boolean gender;
+
+    @NotNull(message = "性别不能填写")
+    private Byte gender;
+
+    @NotNull(message = "年龄不能不填写")
+    @Min(value = 0, message = "年龄必须大于0岁")
+    @Max(value = 150, message = "年龄不许小于150岁")
     private Integer age;
+
+    @NotBlank(message = "手机号不能为空")
     private String telphone;
     private String regisitMode;
     private Integer thirdPartyId;
 
+    @NotBlank(message = "密码不能为空")
     private String encrptPassword;
 
     public String getEncrptPassword() {
@@ -39,11 +54,11 @@ public class UserModel {
         this.name = name;
     }
 
-    public Boolean getGender() {
+    public Byte getGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(Byte gender) {
         this.gender = gender;
     }
 

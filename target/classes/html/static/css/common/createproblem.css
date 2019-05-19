@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+#createProblemContent{
+	border:0px solid #E6E6E6;
+	border-bottom:1px solid #E6E6E6;
+	font-size:15px;
+	color:black;
+	width:100%;
+	display:block;
+	outline:none !important;
+	padding:20px 0px 20px 0px;
+	background-color:rgba(0,0,0,0);
+}
+
+#createProblemContent::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #BABABA;
+}
+#createProblemContent:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #BABABA;
+}
+#createProblemContent::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #BABABA;
+}
+#createProblemContent::-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #BABABA;
+}
+
+
+#createProblemSummary{
+	font-size:15px;
+	color:black;
+	min-height:180px;
+	padding:20px 0px 20px 0px;
+	border-bottom:1px solid #E6E6E6;
+	width:100%;
+	outline:none !important;
+	display:block;
+	line-height:1.6;
+}
+#createProblemModalOperationContainer{
+	margin-top:60px;
+	text-align:center;
+}
+	
+#createProblemCancel{
+	margin-right:11px;
+}
+	
+#createProblemSubmit{
+	margin-left:11px;
+}
+	
+#createProblemMarkContainer{
+	border-bottom:1px solid #E6E6E6;
+	padding:20px 0px 10px 0px;
+}
+

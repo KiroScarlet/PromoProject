@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+.page-container{
+	margin-top: 1.5rem;
+	margin-bottom: 3rem;
+}
+.page-number-container{
+	margin:0 1rem;
+}
+.page-btn-container{
+	margin:0 1rem;
+}
+.page-btn{
+	padding: 0.42rem 2.125rem !important;
+	color: #808080 !important;
+}

@@ -26,7 +26,7 @@ public class UserDO {
      *
      * @mbg.generated Wed May 15 17:05:51 CST 2019
      */
-    private Boolean gender;
+    private Byte gender;
 
     /**
      *
@@ -120,7 +120,7 @@ public class UserDO {
      *
      * @mbg.generated Wed May 15 17:05:51 CST 2019
      */
-    public Boolean getGender() {
+    public Byte getGender() {
         return gender;
     }
 
@@ -132,7 +132,7 @@ public class UserDO {
      *
      * @mbg.generated Wed May 15 17:05:51 CST 2019
      */
-    public void setGender(Boolean gender) {
+    public void setGender(Byte gender) {
         this.gender = gender;
     }
 

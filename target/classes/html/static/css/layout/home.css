@@ -1,0 +1,29 @@
+.guide-container{
+  height: 120px;
+  background-image: url(../../img/guide.png);
+  padding-top: 40px;
+  text-align: center;
+}
+.guide-container h4{
+  color: #fff;
+  display: inline-block;
+  margin-right: 32px;
+}
+
+.selector-container{
+  padding-right: 14px;
+}
+.selector-container .select-item{
+  margin-bottom: 20px;
+}
+.selector-container .select-item .item-header{
+  margin-bottom: 10px;
+}
+.selector-container .select-item .item-tag{
+  margin-right: 12px;
+  line-height: 30px;
+  display: inline-block;
+}
+.selector-container .select-item .item-tag.active{
+  color: #1DC78E;
+}

@@ -305,7 +305,7 @@ package com.miaoshaproject.service.model;
 public class UserModel {
     private Integer id;
     private String name;
-    private Boolean gender;
+    private Byte gender;
     private Integer age;
     private String telphone;
     private String regisitMode;
@@ -388,7 +388,7 @@ public class UserServiceImpl implements UserService {
 public class UserVO {
     private Integer id;
     private String name;
-    private Boolean gender;
+    private Byte gender;
     private Integer age;
     private String telphone;
 }
@@ -634,3 +634,422 @@ public class UserController extends BaseController{
 测试，在控制台打印数据
 
 ### 3.6 用户模型管理——Metronic模板简介
+
+采用前后端分离的思想，建立一个html文件夹，引入static文件夹
+
+前端文件保存在本地的哪个盘下都可以，因为是通过ajax来异步获取接口
+
+###	3.7 用户模型管理——getotp页面实现
+
+1.getotp.html：
+
+```xml
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="static/assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h3>获取otp信息</h3>
+        <div>
+            <label>手机号</label>
+            <div>
+                <input type="text" placeholder="手机号" name="telphone" id="telphone"/>
+            </div>
+        </div>
+        <div>
+            <button id="getotp" type="submit">
+                获取otp短信
+            </button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    jQuery(document).ready(function () {
+
+        //绑定otp的click事件用于向后端发送获取手机验证码的请求
+        $("#getotp").on("click",function () {
+
+            var telphone=$("#telphone").val();
+            if (telphone==null || telphone=="") {
+                alert("手机号不能为空");
+                return false;
+            }
+
+
+            //映射到后端@RequestMapping(value = "/getotp", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+            $.ajax({
+                type:"POST",
+                contentType:"application/x-www-form-urlencoded",
+                url:"http://localhost:8080/user/getotp",
+                data:{
+                    "telphone":$("#telphone").val(),
+                },
+                success:function (data) {
+                    if (data.status=="success") {
+                        alert("otp已经发送到了您的手机，请注意查收");
+                    }else {
+                        alert("otp发送失败，原因为" + data.data.errMsg);
+                    }
+                },
+                error:function (data) {
+                    alert("otp发送失败，原因为"+data.responseText);
+                }
+            });
+        });
+    });
+</script>
+</html>
+```
+
+2.指定controller的method
+
+```java
+@RequestMapping(value = "/getotp", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+```
+
+3.提示发送失败，使用chrome调试，发现报错为
+
+```
+getotp.html?_ijt=cqdae6hmhq9069c9s4muooakju:1 Access to XMLHttpRequest at 'http://localhost:8080/user/getotp' from origin 'http://localhost:63342' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+
+跨域请求错误，只需要在UserController类上加一个注解`@CrossOrigin`即可
+
+###	3.8 用户模型管理——getotp页面美化
+
+1.引入样式表
+
+```html
+<link href="static/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="static/assets/global/plugins/css/component.css" rel="stylesheet" type="text/css"/>
+<link href="static/assets/admin/pages/css/login.css" rel="stylesheet" type="text/css"/>
+```
+
+2.使用样式
+
+```html
+<body class="login">
+    <div class="content">
+        <h3 class="form-title">获取otp信息</h3>
+        <div class="form-group">
+            <label class="control-label">手机号</label>
+            <div>
+                <input class="form-control" type="text" placeholder="手机号" name="telphone" id="telphone"/>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn blue" id="getotp" type="submit">
+                获取otp短信
+            </button>
+        </div>
+    </div>
+
+</body>
+```
+
+###	3.9 用户模型管理——用户注册功能实现
+
+1.实现方法：用户注册接口
+
+```java
+     //用户注册接口
+    @RequestMapping(value = "/register", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+    @ResponseBody
+    public CommonReturnType register(@RequestParam(name = "telphone") String telphone,
+                                     @RequestParam(name = "otpCode") String otpCode,
+                                     @RequestParam(name = "name") String name,
+                                     @RequestParam(name = "gender") String gender,
+                                     @RequestParam(name = "age") String age,
+                                     @RequestParam(name = "password") String password) throws BusinessException, UnsupportedEncodingException, NoSuchAlgorithmException {
+
+        //验证手机号和对应的otpCode相符合
+        String inSessionOtpCode = (String) this.httpServletRequest.getSession().getAttribute(telphone);
+        if (!com.alibaba.druid.util.StringUtils.equals(otpCode, inSessionOtpCode)) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "短信验证码不符合");
+        }
+        //用户的注册流程
+        UserModel userModel = new UserModel();
+        userModel.setName(name);
+        userModel.setAge(Integer.valueOf(age));
+        userModel.setGender(Byte.valueOf(gender));
+        userModel.setTelphone(telphone);
+        userModel.setRegisitMode("byphone");
+
+        //密码加密
+        userModel.setEncrptPassword(this.EncodeByMd5(password));
+
+        userService.register(userModel);
+        return CommonReturnType.create(null);
+
+    }
+
+    //密码加密
+    public String EncodeByMd5(String str) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        //确定计算方法
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+        BASE64Encoder base64en = new BASE64Encoder();
+        //加密字符串
+        String newstr = base64en.encode(md5.digest(str.getBytes("utf-8")));
+        return newstr;
+    }
+```
+
+2.引入做输入校验的依赖
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-lang3</artifactId>
+  <version>3.7</version>
+</dependency>
+```
+
+3.UserServiceImpl的register方法
+
+```java
+    @Override
+    @Transactional//声明事务
+    public void register(UserModel userModel) throws BusinessException {
+        //校验
+        if (userModel == null) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+        }
+        if (StringUtils.isEmpty(userModel.getName())
+                || userModel.getGender() == null
+                || userModel.getAge() == null
+                || StringUtils.isEmpty(userModel.getTelphone())) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+        }
+
+        //实现model->dataobject方法
+        UserDO userDO = convertFromModel(userModel);
+        //insertSelective相对于insert方法，不会覆盖掉数据库的默认值
+        userDOMapper.insertSelective(userDO);
+
+        userModel.setId(userDO.getId());
+
+        userPasswordDO userPasswordDO = convertPasswordFromModel(userModel);
+        userPasswordDOMapper.insertSelective(userPasswordDO);
+
+        return;
+    }
+
+    private userPasswordDO convertPasswordFromModel(UserModel userModel) {
+        if (userModel == null) {
+            return null;
+        }
+        userPasswordDO userPasswordDO = new userPasswordDO();
+        userPasswordDO.setEncrptPassword(userModel.getEncrptPassword());
+        userPasswordDO.setUserId(userModel.getId());
+
+        return userPasswordDO;
+    }
+
+    private UserDO convertFromModel(UserModel userModel) {
+        if (userModel == null) {
+            return null;
+        }
+        UserDO userDO = new UserDO();
+        BeanUtils.copyProperties(userModel, userDO);
+        return userDO;
+    }
+
+```
+
+4.前端界面
+
+首先在getotp界面添加注册成功的跳转界面
+
+```javascript
+success:function (data) {
+    if (data.status=="success") {
+        alert("otp已经发送到了您的手机，请注意查收");
+        window.location.href="register.html";
+    }else {
+        alert("otp发送失败，原因为" + data.data.errMsg);
+    }
+},
+```
+
+模仿之前写的界面，新建一个register.html
+
+```html
+<body class="login">
+    <div class="content">
+        <h3 class="form-title">用户注册</h3>
+        <div class="form-group">
+            <label class="control-label">手机号</label>
+            <div>
+                <input class="form-control" type="text" placeholder="手机号" name="telphone" id="telphone"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">验证码</label>
+            <div>
+                <input class="form-control" type="text" placeholder="验证码" name="otpCode" id="otpCode"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">用户昵称</label>
+            <div>
+                <input class="form-control" type="text" placeholder="用户昵称" name="name" id="name"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">性别</label>
+            <div>
+                <input class="form-control" type="text" placeholder="性别" name="gender" id="gender"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">年龄</label>
+            <div>
+                <input class="form-control" type="text" placeholder="年龄" name="age" id="age"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">密码</label>
+            <div>
+                <input class="form-control" type="password" placeholder="密码" name="password" id="password"/>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn blue" id="register" type="submit">
+                提交注册
+            </button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    jQuery(document).ready(function () {
+
+        //绑定otp的click事件用于向后端发送获取手机验证码的请求
+        $("#register").on("click",function () {
+
+            var telphone=$("#telphone").val();
+            var otpCode=$("#otpCode").val();
+            var password=$("#password").val();
+            var age=$("#age").val();
+            var gender=$("#gender").val();
+            var name=$("#name").val();
+            if (telphone==null || telphone=="") {
+                alert("手机号不能为空");
+                return false;
+            }
+            if (otpCode==null || otpCode=="") {
+                alert("验证码不能为空");
+                return false;
+            }
+            if (name==null || name=="") {
+                alert("用户名不能为空");
+                return false;
+            }
+            if (gender==null || gender=="") {
+                alert("性别不能为空");
+                return false;
+            }
+            if (age==null || age=="") {
+                alert("年龄不能为空");
+                return false;
+            }
+            if (password==null || password=="") {
+                alert("密码不能为空");
+                return false;
+            }
+
+            //映射到后端@RequestMapping(value = "/register", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+            $.ajax({
+                type:"POST",
+                contentType:"application/x-www-form-urlencoded",
+                url:"http://localhost:8080/user/register",
+                data:{
+                    "telphone":telphone,
+                    "otpCode":otpCode,
+                    "password":password,
+                    "age":age,
+                    "gender":gender,
+                    "name":name
+                },
+                //允许跨域请求
+                xhrFields:{withCredentials:true},
+                success:function (data) {
+                    if (data.status=="success") {
+                        alert("注册成功");
+                    }else {
+                        alert("注册失败，原因为" + data.data.errMsg);
+                    }
+                },
+                error:function (data) {
+                    alert("注册失败，原因为"+data.responseText);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+```
+
+5.调试
+
+发现报错，获取不到验证码
+
+跨域请求问题
+
+在UserController上添加如下注解：
+
+```java
+//跨域请求中，不能做到session共享
+@CrossOrigin(allowCredentials = "true",allowedHeaders = "*")
+```
+
+6.注册成功，但是查看数据库，发现password表中并没有user_id
+
+在UserDOMapper的insertSelective方法中添加如下代码：
+
+```xml
+ <insert id="insertSelective" parameterType="com.miaoshaproject.dataobject.UserDO" keyProperty="id" useGeneratedKeys="true">
+```
+
+通过这样的方式将自增id取出之后复制给对应的UserDO
+
+7.修改UserServiceImpl
+
+```java
+UserDO userDO = convertFromModel(userModel);
+//insertSelective相对于insert方法，不会覆盖掉数据库的默认值
+userDOMapper.insertSelective(userDO);
+
+userModel.setId(userDO.getId());
+
+userPasswordDO userPasswordDO = convertPasswordFromModel(userModel);
+userPasswordDOMapper.insertSelective(userPasswordDO);
+
+return;
+```
+
+重新测试成功
+
+8.上面并没有做手机号的唯一性验证
+
+首先，在数据库中添加索引：
+
+索引名称为：telphone_unique_index，索引字段选择telphone，索引类型为UNIQUE，索引方法为BTREE
+
+然后修改以下代码：
+
+```java
+try {
+    userDOMapper.insertSelective(userDO);
+} catch (DuplicateKeyException ex) {
+    throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "手机号已注册");
+}
+```
+
