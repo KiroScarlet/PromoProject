@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="static/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="static/assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="static/assets/admin/pages/css/login.css" rel="stylesheet" type="text/css"/>
+    <script src="static/assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <title>Title</title>
+</head>
+<body class="login">
+<div class="content">
+    <h3 class="form-title">商品详情</h3>
+    <div id="promoStartDateContainer" class="form-group">
+        <label style="color:blue" id="promoStatus" class="control-label">秒杀开始时间</label>
+        <div>
+            <label style="color:red" class="control-label" id="promoStartDate" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            <label class="control-label" id="title" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+            <img style="width:200px;height:auto;" id="imgUrl">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">商品描述</label>
+        <div>
+            <label class="control-label" id="description" />
+        </div>
+    </div>
+    <div id="normalPriceContainer" class="form-group">
+        <label class="control-label">商品价格</label>
+        <div>
+            <label class="control-label" id="price" />
+        </div>
+    </div>
+    <div id="promoPriceContainer" class="form-group">
+        <label style="color:red" class="control-label">秒杀价格</label>
+        <div>
+            <label style="color:red" class="control-label" id="promoPrice" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">商品库存</label>
+        <div>
+            <label class="control-label" id="stock" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">商品销量</label>
+        <div>
+            <label class="control-label" id="sales" />
+        </div>
+    </div>
+    <div class="form-actions">
+        <button class="btn blue" id="createOrder" type="submit">
+            立即购买
+        </button>
+    </div>
+</div>
+</body>
+
+<script>
+
+
+
+
+    var g_itemVO = {};
+    $(document).ready(function() {
+        // 获取商品详情
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/item/get",
+            data: {
+                "id": getParam("id"),
+            },
+            xhrFields:{
+                withCredentials:true
+            },
+            success: function(data) {
+                if (data.status == "success") {
+                    g_itemVO = data.data;
+                    reloadDom();
+                    setInterval(reloadDom, 1000);
+                } else {
+                    alert("获取信息失败，原因为" + data.data.errMsg);
+                }
+            },
+            error: function(data) {
+                alert("获取信息失败，原因为" + data.responseText);
+            }
+        });
+    });
+
+    function getParam(paramName) {
+        paramValue = "", isFound = !1;
+        if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+            arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+            while (i < arrSource.length && !isFound)
+                arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+        }
+        return paramValue == "" && (paramValue = null), paramValue
+    }
+</script>
+</html>

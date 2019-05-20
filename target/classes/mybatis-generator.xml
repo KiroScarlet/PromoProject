@@ -37,7 +37,7 @@
                selectByExampleQueryId="false"
                这些属性是为了使得只生成简单查询的对应文件，去掉复杂查询的生成文件，因为一般开发中不太用的到
         -->
-        <table tableName="user_info" domainObjectName="UserDO"
+<!--        <table tableName="user_info" domainObjectName="UserDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
@@ -48,7 +48,22 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
+               selectByExampleQueryId="false" ></table>-->
+
+        <table tableName="item" domainObjectName="ItemDO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
                selectByExampleQueryId="false" ></table>
+        <table tableName="item_stock" domainObjectName="ItemStockDO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false" ></table>
+
+
 
     </context>
 </generatorConfiguration>

@@ -209,7 +209,6 @@ http://www.mybatis.org/generator/configreference/xmlconfig.html
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
-        <!--我这里的UserPasswordDO首字母忘记大写了，导致后面的UserPasswordDO和UserPasswordMapper都错了，不过后面才发现，不好改了，就这样吧，影响不大-->
         <table tableName="user_password" domainObjectName="userPasswordDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
@@ -220,8 +219,6 @@ http://www.mybatis.org/generator/configreference/xmlconfig.html
     </context>
 </generatorConfiguration>
 ```
-
-> ​	我这里的UserPasswordDO首字母忘记大写了，导致后面的UserPasswordDO和UserPasswordMapper都错了，不过后面才发现，不好改了，就这样吧，影响不大
 
 4.生成文件
 
@@ -1451,4 +1448,271 @@ public class ItemModel {
 4.修改mybatis-generator配置文件
 
 添加两张表
+
+运行`	mvn mybatis-generator:generate`
+
+5.修改mapper的xml文件
+
+把insert和insertSelective方法后添加属性 `	keyProperty="id" useGeneratedKeys="true""`，使其保持自增
+
+6.创建ItemService接口
+
+```java
+public interface ItemService {
+
+    //创建商品
+    ItemModel createItem(ItemModel itemModel);
+
+    //商品列表浏览
+    List<ItemModel> listItem();
+
+
+    //商品详情浏览
+    ItemModel getItemById(Integer id);
+}
+```
+
+7.ItemServiceImpl实现类
+
+入参校验
+
+```java
+//商品名称
+@NotBlank(message = "商品名称不能为空")
+private String title;
+
+//商品价格
+@NotNull(message = "商品价格不能为空")
+@Min(value = 0,message = "商品价格必须大于0")
+private BigDecimal price;
+
+//商品的库存
+@NotNull(message = "库存不能不填")
+private Integer stock;
+
+//商品的描述
+@NotBlank(message = "商品描述信息不能为空")
+private String description;
+
+//商品的销量
+@NotBlank(message = "商品图片信息不能为空")
+private Integer sales;
+
+//商品描述图片的url
+private String imgUrl;
+```
+
+实现方法
+
+```java
+@Service
+public class ItemServiceImpl implements ItemService {
+
+    @Autowired
+    private ValidatorImpl validator;
+
+    @Autowired
+    private ItemDOMapper itemDOMapper;
+
+    @Autowired
+    private ItemStockDOMapper itemStockDOMapper;
+
+    @Override
+    @Transactional
+    public ItemModel createItem(ItemModel itemModel) throws BusinessException {
+
+        //校验入参
+        ValidationResult result = validator.validate(itemModel);
+        if (result.isHasErrors()) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, result.getErrMsg());
+        }
+        //转化itemmodel->dataobject
+        ItemDO itemDO = this.convertItemDOFromItemModel(itemModel);
+
+        //写入数据库
+        itemDOMapper.insertSelective(itemDO);
+        itemModel.setId(itemDO.getId());
+
+        ItemStockDO itemStockDO = this.convertItemStockDOFromItemModel(itemModel);
+        itemStockDOMapper.insertSelective(itemStockDO);
+
+        //返回创建完成的对象
+        return this.getItemById(itemModel.getId());
+
+    }
+
+    private ItemDO convertItemDOFromItemModel(ItemModel itemModel) {
+        if (itemModel == null) {
+            return null;
+        }
+        ItemDO itemDO = new ItemDO();
+        BeanUtils.copyProperties(itemModel, itemDO);
+        return itemDO;
+    }
+
+    private ItemStockDO convertItemStockDOFromItemModel(ItemModel itemModel) {
+        if (itemModel == null) {
+            return null;
+        }
+        ItemStockDO itemStockDO = new ItemStockDO();
+        itemStockDO.setItemId(itemModel.getId());
+        itemStockDO.setStock(itemModel.getStock());
+
+        return itemStockDO;
+    }
+
+    @Override
+    public List<ItemModel> listItem() {
+        return null;
+    }
+
+    @Override
+    public ItemModel getItemById(Integer id) {
+        ItemDO itemDO = itemDOMapper.selectByPrimaryKey(id);
+        if (itemDO == null) {
+            return null;
+        }
+        //操作获得库存数量
+        ItemStockDO itemStockDO = itemStockDOMapper.selectByItemId(itemDO.getId());
+
+        //将dataobject-> Model
+        ItemModel itemModel = convertModelFromDataObject(itemDO, itemStockDO);
+        return itemModel;
+    }
+
+    private ItemModel convertModelFromDataObject(ItemDO itemDO, ItemStockDO itemStockDO) {
+        ItemModel itemModel = new ItemModel();
+        BeanUtils.copyProperties(itemDO, itemModel);
+        itemModel.setStock(itemStockDO.getStock());
+        return itemModel;
+    }
+}
+```
+
+8.ItemController
+
+```java
+@Controller("/item")
+@RequestMapping("/item")
+//跨域请求中，不能做到session共享
+@CrossOrigin(origins = {"*"}, allowCredentials = "true")
+public class ItemController extends BaseController {
+
+    @Autowired
+    private ItemService itemService;
+
+    //创建商品的controller
+    @RequestMapping(value = "/create", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+    @ResponseBody
+    public CommonReturnType createItem(@RequestParam(name = "title") String title,
+                                       @RequestParam(name = "description") String description,
+                                       @RequestParam(name = "price") BigDecimal price,
+                                       @RequestParam(name = "stock") Integer stock,
+                                       @RequestParam(name = "imgUrl") String imgUrl) throws BusinessException {
+        //封装service请求用来创建商品
+        ItemModel itemModel = new ItemModel();
+        itemModel.setTitle(title);
+        itemModel.setDescription(description);
+        itemModel.setPrice(price);
+        itemModel.setStock(stock);
+        itemModel.setImgUrl(imgUrl);
+
+        ItemModel itemModelForReturn = itemService.createItem(itemModel);
+        ItemVO itemVO = convertVOFromModel(itemModelForReturn);
+        return CommonReturnType.create(itemVO);
+
+    }
+
+    private ItemVO convertVOFromModel(ItemModel itemModel) {
+        if (itemModel == null) {
+            return null;
+        }
+        ItemVO itemVO = new ItemVO();
+        BeanUtils.copyProperties(itemModel, itemVO);
+        return itemVO;
+    }
+
+}
+```
+
+9.商品详情页浏览
+
+```java
+@RequestMapping(value = "/get", method = {RequestMethod.GET})
+@ResponseBody
+public CommonReturnType getItem(@RequestParam(name = "id") Integer id) {
+    ItemModel itemModel = itemService.getItemById(id);
+
+    ItemVO itemVO = convertVOFromModel(itemModel);
+
+    return CommonReturnType.create(itemVO);
+}
+```
+
+###	4.2 商品模型管理——商品列表
+
+*假设我们的需求是按照销量从高到低显示所有商品*
+
+1.创建sql语句
+
+在ItemDOMapper.xml中新建方法
+
+```xml
+<select id="listItem"  resultMap="BaseResultMap">
+
+  select
+  <include refid="Base_Column_List" />
+  /*通过销量倒序排序*/
+  from item ORDER BY sales DESC;
+</select>
+```
+
+2.在ItemDOMapper中创建方法
+
+```java
+List<ItemDO> listItem();
+```
+
+3.在ItemServiceImpl中实现方法
+
+```java
+@Override
+public List<ItemModel> listItem() {
+    List<ItemDO> itemDOList = itemDOMapper.listItem();
+
+    //使用Java8的stream API
+    List<ItemModel> itemModelList = itemDOList.stream().map(itemDO -> {
+        ItemStockDO itemStockDO = itemStockDOMapper.selectByItemId(itemDO.getId());
+        ItemModel itemModel = this.convertModelFromDataObject(itemDO, itemStockDO);
+        return itemModel;
+    }).collect(Collectors.toList());
+
+    return itemModelList;
+}
+```
+
+4.controller层
+
+```java
+//商品列表页面浏览
+@RequestMapping(value = "/list", method = {RequestMethod.GET})
+@ResponseBody
+public CommonReturnType listItem() {
+    List<ItemModel> itemModelList = itemService.listItem();
+    List<ItemVO> itemVOList = itemModelList.stream().map(itemModel -> {
+        ItemVO itemVO = this.convertVOFromModel(itemModel);
+        return itemVO;
+    }).collect(Collectors.toList());
+
+    return CommonReturnType.create(itemVOList);
+}
+```
+
+###	4.3 商品模型管理——商品列表页面
+
+###	4.4 商品模型管理——商品详情页面
+
+##	第五章 交易模块开发
+
+
 
