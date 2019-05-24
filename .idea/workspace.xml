@@ -5,33 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42c21c81-d629-4711-a39c-6d13fd009ea0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/html/miaosha复制.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/PromoService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/PromoServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/PromoModel.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/miaoshaproject.iml" afterPath="$PROJECT_DIR$/miaoshaproject.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemDOMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemDOMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemStockDOMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemStockDOMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/error/EmBusinessError.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/error/EmBusinessError.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/ItemService.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/ItemService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/viewobject/ItemVO.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/viewobject/ItemVO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dataobject/OrderDO.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dataobject/OrderDO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/ItemServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/ItemServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/ItemModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/ItemModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/html/getitem.html" afterPath="$PROJECT_DIR$/src/main/resources/html/getitem.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/html/login.html" afterPath="$PROJECT_DIR$/src/main/resources/html/login.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/ItemDOMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/ItemDOMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/ItemStockDOMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/ItemStockDOMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/miaosha复制.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/OrderDOMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/OrderDOMapper.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-generator.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-generator.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/ItemController.class" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/controller/ItemController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/dao/ItemStockDOMapper.class" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/dao/ItemStockDOMapper.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/error/EmBusinessError.class" afterPath="$PROJECT_DIR$/target/classes/com/miaoshaproject/error/EmBusinessError.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/ItemService.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/miaoshaproject/service/impl/ItemServiceImpl.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/html/getitem.html" afterPath="$PROJECT_DIR$/target/classes/html/getitem.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/html/listitem.html" afterPath="$PROJECT_DIR$/target/classes/html/listitem.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapping/ItemStockDOMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapping/ItemStockDOMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-generator.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis-generator.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,21 +52,126 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ItemStockDOMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemStockDOMapper.java">
+      <file leaf-file-name="PromoModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/PromoModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="273">
+              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#548#549#0" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#610#611#0" expanded="true" />
+                <element signature="e#638#639#0" expanded="true" />
+                <element signature="e#674#675#0" expanded="true" />
+                <element signature="e#706#707#0" expanded="true" />
+                <element signature="e#756#757#0" expanded="true" />
+                <element signature="e#798#799#0" expanded="true" />
+                <element signature="e#836#837#0" expanded="true" />
+                <element signature="e#868#869#0" expanded="true" />
+                <element signature="e#920#921#0" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+                <element signature="e#998#999#0" expanded="true" />
+                <element signature="e#1028#1029#0" expanded="true" />
+                <element signature="e#1076#1077#0" expanded="true" />
+                <element signature="e#1114#1115#0" expanded="true" />
+                <element signature="e#1148#1149#0" expanded="true" />
+                <element signature="e#1177#1178#0" expanded="true" />
+                <element signature="e#1222#1223#0" expanded="true" />
+                <element signature="e#1258#1259#0" expanded="true" />
+                <element signature="e#1303#1304#0" expanded="true" />
+                <element signature="e#1340#1341#0" expanded="true" />
+                <element signature="e#1404#1405#0" expanded="true" />
+                <element signature="e#1456#1457#0" expanded="true" />
+                <element signature="e#1490#1491#0" expanded="true" />
+                <element signature="e#1519#1520#0" expanded="true" />
+                <element signature="e#1564#1565#0" expanded="true" />
+                <element signature="e#1600#1601#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PromoService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/PromoService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java">
+      <file leaf-file-name="OrderModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="38" column="54" lean-forward="false" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+            <state relative-caret-position="328">
+              <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+              <folding>
+                <element signature="e#1461#1462#0" expanded="true" />
+                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1538#1539#0" expanded="true" />
+                <element signature="e#1576#1577#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dataobject/OrderDO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+              <folding>
+                <element signature="e#1610#1611#0" expanded="true" />
+                <element signature="e#1657#1658#0" expanded="true" />
+                <element signature="e#1695#1696#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDOMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/OrderDOMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDOMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/OrderDOMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="126" column="35" lean-forward="true" selection-start-line="126" selection-start-column="35" selection-end-line="126" selection-end-column="35" />
+              <folding>
+                <marker date="1558708845692" expanded="true" signature="1579:1685" ph="select from order_info" />
+                <marker date="1558708845692" expanded="true" signature="1967:2027" ph="delete from order_info... " />
+                <marker date="1558708845692" expanded="true" signature="2318:2633" ph="insert into order_info... " />
+                <marker date="1558708845692" expanded="true" signature="4419:4970" ph="update order_info... " />
+                <marker date="1558708845692" expanded="true" signature="5273:5562" ph="update order_info... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PromoServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/PromoServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="412">
+              <caret line="61" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,20 +182,18 @@
       <file leaf-file-name="OrderServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="81" column="50" lean-forward="false" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1071">
+              <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemServiceImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/ItemServiceImpl.java">
+      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+            <state relative-caret-position="538">
+              <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -130,8 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/userPasswordDOMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/userPasswordDOMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/response/CommonReturnType.java" />
@@ -149,9 +244,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/UserModel.java" />
         <option value="$PROJECT_DIR$/src/main/resources/html/register.html" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/viewobject/ItemVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/ItemModel.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/miaoshaproject/controller/ItemControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/App.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/UserDOMapper.xml" />
@@ -159,23 +251,33 @@
         <option value="$PROJECT_DIR$/src/main/resources/html/createitem.html" />
         <option value="$PROJECT_DIR$/src/main/resources/html/listitem.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis-generator.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/SequenceDOMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/SequenceDOMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/error/EmBusinessError.java" />
         <option value="$PROJECT_DIR$/src/main/resources/html/login.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/html/getitem.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/ItemStockDOMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemStockDOMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/ItemService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapping/ItemDOMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemDOMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-generator.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/PromoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/PromoDOMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/PromoDOMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/PromoModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/PromoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/ItemModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/ItemServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/viewobject/ItemVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/html/getitem.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/dataobject/OrderDO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/OrderDOMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -319,7 +421,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="miaoshaproject" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="dataobject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="miaoshaproject" type="b2602c69:ProjectViewProjectNode" />
@@ -447,7 +549,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="itemdom&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/dao/ItemDOMapper.java&#10;itemdoma&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/ItemStockDOMapper.xml&#10;userc&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/controller/UserController.java&#10;orders&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java&#10;items&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/dao/ItemStockDOMapper.java&#10;itemsto&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/ItemStockDOMapper.xml&#10;userdom&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/dao/UserDOMapper.java&#10;userdo&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/UserDOMapper.xml&#10;user&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/UserService.java&#10;pom&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/pom.xml&#10;userdomapper&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/UserDOMapper.xml&#10;UserSer&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/UserService.java" />
+    <property name="SearchEverywhereHistoryKey" value="orderc\&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/controller/OrderController.java&#10;orderser&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/OrderService.java&#10;orderdoma&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/OrderDOMapper.xml&#10;orderdom&#9;PSI&#9;JAVA://com.miaoshaproject.dao.OrderDOMapper&#10;orderdo&#9;PSI&#9;JAVA://com.miaoshaproject.dataobject.OrderDO&#10;items&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/impl/ItemServiceImpl.java&#10;pom&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/pom.xml&#10;itemdom&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/dao/ItemDOMapper.java&#10;itemdoma&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/ItemStockDOMapper.xml&#10;userc&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/controller/UserController.java&#10;orders&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java&#10;itemsto&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/ItemStockDOMapper.xml&#10;userdom&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/dao/UserDOMapper.java&#10;userdo&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/UserDOMapper.xml&#10;user&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/UserService.java&#10;userdomapper&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/resources/mapping/UserDOMapper.xml&#10;UserSer&#9;FILE&#9;file://D:/IdeaProject/springLearn/miaoshaproject/src/main/java/com/miaoshaproject/service/UserService.java" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
@@ -674,7 +776,7 @@
       <workItem from="1558078893875" duration="19676000" />
       <workItem from="1558194435227" duration="16924000" />
       <workItem from="1558277626343" duration="20488000" />
-      <workItem from="1558440687835" duration="13060000" />
+      <workItem from="1558440687835" duration="21496000" />
     </task>
     <servers />
   </component>
@@ -711,7 +813,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89189000" />
+    <option name="totallyTimeSpent" value="97625000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -735,7 +837,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929742" sideWeight="0.49785408" order="3" side_tool="false" content_ui="tabs" x="-1914" y="569" width="1864" height="341" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39929742" sideWeight="0.49785408" order="3" side_tool="false" content_ui="tabs" x="-1914" y="569" width="1864" height="341" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -810,89 +912,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="100" />
+      <option name="time" value="101" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="300" column="30" lean-forward="false" selection-start-line="300" selection-start-column="30" selection-end-line="300" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/validator/ValidatorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/UserDOMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="50" lean-forward="true" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/UserPasswordDOMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/miaoshaproject/controller/ItemControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.6.RELEASE/spring-webmvc-5.1.6.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="521" column="152" lean-forward="false" selection-start-line="521" selection-start-column="152" selection-end-line="521" selection-end-column="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.6.RELEASE/spring-webmvc-5.1.6.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="441" column="0" lean-forward="false" selection-start-line="441" selection-start-column="0" selection-end-line="441" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.6.RELEASE/spring-webmvc-5.1.6.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -904,21 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/UserPasswordDOMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="62" column="132" lean-forward="false" selection-start-line="62" selection-start-column="132" selection-end-line="62" selection-end-column="132" />
-          <folding>
-            <marker date="1558353876335" expanded="true" signature="1084:1201" ph="select from user_password" />
-            <marker date="1558353876335" expanded="true" signature="1513:1622" ph="select from user_password" />
-            <marker date="1558353876335" expanded="true" signature="1905:1968" ph="delete from user_password... " />
-            <marker date="1558353876335" expanded="true" signature="2307:2477" ph="insert into user_password... " />
-            <marker date="1558353876335" expanded="true" signature="3750:4035" ph="update user_password... " />
-            <marker date="1558353876335" expanded="true" signature="4345:4508" ph="update user_password... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,14 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/ItemModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,47 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147">
-          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="e#484#485#0" expanded="false" />
-            <element signature="e#509#510#0" expanded="false" />
-            <element signature="e#545#546#0" expanded="false" />
-            <element signature="e#573#574#0" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#636#637#0" expanded="false" />
-            <element signature="e#681#682#0" expanded="false" />
-            <element signature="e#717#718#0" expanded="false" />
-            <element signature="e#751#752#0" expanded="false" />
-            <element signature="e#780#781#0" expanded="false" />
-            <element signature="e#825#826#0" expanded="false" />
-            <element signature="e#861#862#0" expanded="false" />
-            <element signature="e#901#902#0" expanded="false" />
-            <element signature="e#933#934#0" expanded="false" />
-            <element signature="e#987#988#0" expanded="false" />
-            <element signature="e#1029#1030#0" expanded="false" />
-            <element signature="e#1063#1064#0" expanded="false" />
-            <element signature="e#1092#1093#0" expanded="false" />
-            <element signature="e#1137#1138#0" expanded="false" />
-            <element signature="e#1173#1174#0" expanded="false" />
-            <element signature="e#1214#1215#0" expanded="false" />
-            <element signature="e#1247#1248#0" expanded="false" />
-            <element signature="e#1303#1304#0" expanded="false" />
-            <element signature="e#1347#1348#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-generator.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="78" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/html/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
@@ -1118,14 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1161,14 +1113,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/error/EmBusinessError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1193,220 +1137,204 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/html/getitem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="117" column="49" lean-forward="false" selection-start-line="117" selection-start-column="49" selection-end-line="117" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="145" column="37" lean-forward="false" selection-start-line="145" selection-start-column="37" selection-end-line="145" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1558676489973" expanded="true" signature="477:622" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="655:766" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="860:900" ph="@{...}" />
-              <marker date="1558676489973" expanded="false" signature="971:982" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="1004:1010" ph=" }" />
-              <marker date="1558676489973" expanded="true" signature="1060:1158" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="1391:1510" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="1537:1644" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="1674:1815" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2001:2924" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2146:2481" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2163:2313" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2330:2463" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2496:2666" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2512:2650" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2588:2633" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2684:2914" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="2823:2895" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="3401:5419" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="3456:5393" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="3544:3726" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="3865:4015" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="4128:4218" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="4362:4456" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="4495:4768" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="4834:5067" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="5143:5377" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="5819:5938" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="6064:6255" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="6361:6405" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="6494:6535" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="6604:6735" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="6845:6903" ph="/**...*/" />
-              <marker date="1558676489973" expanded="true" signature="7365:7489" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="7830:8193" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="8284:8610" ph="{...}" />
-              <marker date="1558676489973" expanded="false" signature="9751:9762" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="9812:9818" ph=" }" />
-              <marker date="1558676489973" expanded="true" signature="9891:10037" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="10853:10922" ph="{...}" />
-              <marker date="1558676489973" expanded="false" signature="11018:11029" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="11049:11055" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="11100:11111" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="11130:11136" ph=" }" />
-              <marker date="1558676489973" expanded="true" signature="11200:11258" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="11518:11582" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="11680:11788" ph="{...}" />
-              <marker date="1558676489973" expanded="false" signature="11831:11842" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="11879:11885" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="11930:11941" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="11977:11983" ph=" }" />
-              <marker date="1558676489973" expanded="true" signature="12047:12119" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="12778:12865" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="12943:13532" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="13770:13814" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="13900:14389" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="14566:16255" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="14573:14734" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="14741:15100" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="14751:15091" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="14790:14958" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="14839:14943" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="14972:15080" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="15019:15065" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="15110:16247" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="17119:17613" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="17145:17604" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="17222:17433" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="17293:17418" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="17468:17593" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="17532:17578" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="19660:19780" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="21469:21657" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="21503:21594" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="21599:21655" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="21719:23405" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="21745:23396" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="21819:22030" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="21890:22015" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22063:22272" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22134:22257" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22305:22510" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22377:22495" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22543:22748" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22613:22733" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22781:22980" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="22851:22965" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="23013:23226" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="23083:23211" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="23261:23385" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="23327:23370" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="23415:25629" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="23456:25618" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="23546:25610" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="23855:23934" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="23981:24060" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="24101:24180" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="24225:24303" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="24342:24420" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="24469:24547" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="24689:25572" ph="{&quot;type&quot;: &quot;POST&quot;...}" />
-              <marker date="1558676489973" expanded="true" signature="24865:25105" ph="{&quot;name&quot;: name...}" />
-              <marker date="1558676489973" expanded="true" signature="25222:25442" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="25272:25334" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="25339:25424" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="25482:25558" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="27734:27792" ph="/.../" />
-              <marker date="1558676489973" expanded="true" signature="28744:28874" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29020:29859" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29046:29850" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29120:29331" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29191:29316" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29364:29577" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29434:29562" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29612:29839" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29675:29716" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29783:29824" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29869:31407" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="29910:31406" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="29993:30054" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="30130:31398" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="30275:30354" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="30403:30481" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="30620:31360" ph="{&quot;type&quot;: &quot;POST&quot;...}" />
-              <marker date="1558676489973" expanded="true" signature="30793:30893" ph="{&quot;telphone&quot;: telphone...}" />
-              <marker date="1558676489973" expanded="true" signature="31010:31230" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="31060:31122" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="31127:31212" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="31270:31346" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="31480:31609" ph="..." />
-              <marker date="1558676489973" expanded="false" signature="31887:31898" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="31915:31921" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="31970:31981" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="32008:32014" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="32063:32074" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="32093:32099" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="32164:32175" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="32206:32212" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="32277:32288" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="32349:32355" ph=" }" />
-              <marker date="1558676489973" expanded="true" signature="32566:33172" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="32895:33131" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="33242:33378" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="33951:34411" ph="/.../" />
-              <marker date="1558676489973" expanded="false" signature="35045:35056" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35066:35072" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35107:35118" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35131:35137" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35167:35178" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35191:35197" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35237:35248" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35267:35273" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35307:35318" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35331:35337" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35381:35392" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35411:35417" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35448:35459" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35472:35478" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35519:35530" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35549:35555" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35591:35602" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35621:35627" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35679:35690" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35721:35727" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35758:35769" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35782:35788" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35829:35840" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35859:35865" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35896:35907" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="35921:35927" ph=" }" />
-              <marker date="1558676489973" expanded="false" signature="35969:35980" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="36001:36007" ph=" }" />
-              <marker date="1558676489973" expanded="true" signature="37252:37280" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="37359:38018" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="38087:38276" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="38355:38614" ph="{...}" />
-              <marker date="1558676489973" expanded="false" signature="38667:38678" ph=" { " />
-              <marker date="1558676489973" expanded="false" signature="38690:38696" ph=" }" />
-              <marker date="1558676489973" expanded="true" signature="38757:39129" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="39220:39405" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="39439:39563" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="39697:39814" ph="@{...}" />
-              <marker date="1558676489973" expanded="true" signature="40274:40733" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="40794:40983" ph="{...}" />
-              <marker date="1558676489973" expanded="true" signature="41457:41564" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="43056:43487" ph="CREATE TABLE... order_info" />
-              <marker date="1558676489973" expanded="true" signature="43565:43759" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="45669:45798" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="45837:46133" ph="CREATE TABLE... sequence_info" />
-              <marker date="1558676489973" expanded="true" signature="46165:46220" ph="INSERT INTO `sequence_info`... " />
-              <marker date="1558676489973" expanded="true" signature="46317:46511" ph="..." />
-              <marker date="1558676489973" expanded="true" signature="46684:46814" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="477:622" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="655:766" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="860:900" ph="@{...}" />
+              <marker date="1558710076705" expanded="false" signature="971:982" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="1004:1010" ph=" }" />
+              <marker date="1558710076705" expanded="true" signature="1060:1158" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="1391:1510" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="1537:1644" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="1674:1815" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2001:2924" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2146:2481" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2163:2313" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2330:2463" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2496:2666" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2512:2650" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2588:2633" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2684:2914" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="2823:2895" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="3401:5419" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="3456:5393" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="3544:3726" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="3865:4015" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="4128:4218" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="4362:4456" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="4495:4768" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="4834:5067" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="5143:5377" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="5819:5938" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="6064:6255" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="6361:6405" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="6494:6535" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="6604:6735" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="6845:6903" ph="/**...*/" />
+              <marker date="1558710076705" expanded="true" signature="7365:7489" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="7830:8193" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="8284:8610" ph="{...}" />
+              <marker date="1558710076705" expanded="false" signature="9751:9762" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="9812:9818" ph=" }" />
+              <marker date="1558710076705" expanded="true" signature="9891:10037" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="10853:10922" ph="{...}" />
+              <marker date="1558710076705" expanded="false" signature="11018:11029" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="11049:11055" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="11100:11111" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="11130:11136" ph=" }" />
+              <marker date="1558710076705" expanded="true" signature="11200:11258" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="11518:11582" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="11680:11788" ph="{...}" />
+              <marker date="1558710076705" expanded="false" signature="11831:11842" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="11879:11885" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="11930:11941" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="11977:11983" ph=" }" />
+              <marker date="1558710076705" expanded="true" signature="12047:12119" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="12778:12865" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="12943:13532" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="13770:13814" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="13900:14389" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="14566:16255" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="14573:14734" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="14741:15100" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="14751:15091" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="14790:14958" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="14839:14943" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="14972:15080" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="15019:15065" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="15110:16247" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="17119:17613" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="17145:17604" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="17222:17433" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="17293:17418" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="17468:17593" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="17532:17578" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="19660:19780" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="21469:21657" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="21503:21594" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="21599:21655" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="21719:23405" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="21745:23396" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="21819:22030" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="21890:22015" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22063:22272" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22134:22257" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22305:22510" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22377:22495" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22543:22748" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22613:22733" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22781:22980" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="22851:22965" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="23013:23226" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="23083:23211" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="23261:23385" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="23327:23370" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="23415:25629" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="23456:25618" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="23546:25610" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="23855:23934" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="23981:24060" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="24101:24180" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="24225:24303" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="24342:24420" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="24469:24547" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="24689:25572" ph="{&quot;type&quot;: &quot;POST&quot;...}" />
+              <marker date="1558710076705" expanded="true" signature="24865:25105" ph="{&quot;name&quot;: name...}" />
+              <marker date="1558710076705" expanded="true" signature="25222:25442" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="25272:25334" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="25339:25424" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="25482:25558" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="27734:27792" ph="/.../" />
+              <marker date="1558710076705" expanded="true" signature="28744:28874" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29020:29859" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29046:29850" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29120:29331" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29191:29316" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29364:29577" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29434:29562" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29612:29839" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29675:29716" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29783:29824" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29869:31407" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="29910:31406" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="29993:30054" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="30130:31398" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="30275:30354" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="30403:30481" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="30620:31360" ph="{&quot;type&quot;: &quot;POST&quot;...}" />
+              <marker date="1558710076705" expanded="true" signature="30793:30893" ph="{&quot;telphone&quot;: telphone...}" />
+              <marker date="1558710076705" expanded="true" signature="31010:31230" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="31060:31122" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="31127:31212" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="31270:31346" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="31480:31609" ph="..." />
+              <marker date="1558710076705" expanded="false" signature="31887:31898" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="31915:31921" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="31970:31981" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="32008:32014" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="32063:32074" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="32093:32099" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="32164:32175" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="32206:32212" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="32277:32288" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="32349:32355" ph=" }" />
+              <marker date="1558710076705" expanded="true" signature="32566:33172" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="32895:33131" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="33242:33378" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="33951:34411" ph="/.../" />
+              <marker date="1558710076705" expanded="false" signature="35045:35056" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35066:35072" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35107:35118" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35131:35137" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35167:35178" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35191:35197" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35237:35248" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35267:35273" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35307:35318" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35331:35337" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35381:35392" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35411:35417" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35448:35459" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35472:35478" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35519:35530" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35549:35555" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35591:35602" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35621:35627" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35679:35690" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35721:35727" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35758:35769" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35782:35788" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35829:35840" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35859:35865" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35896:35907" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="35921:35927" ph=" }" />
+              <marker date="1558710076705" expanded="false" signature="35969:35980" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="36001:36007" ph=" }" />
+              <marker date="1558710076705" expanded="true" signature="37252:37280" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="37359:38018" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="38087:38276" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="38355:38614" ph="{...}" />
+              <marker date="1558710076705" expanded="false" signature="38667:38678" ph=" { " />
+              <marker date="1558710076705" expanded="false" signature="38690:38696" ph=" }" />
+              <marker date="1558710076705" expanded="true" signature="38757:39129" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="39220:39405" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="39439:39563" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="39697:39814" ph="@{...}" />
+              <marker date="1558710076705" expanded="true" signature="40274:40733" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="40794:40983" ph="{...}" />
+              <marker date="1558710076705" expanded="true" signature="41457:41564" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="43056:43487" ph="CREATE TABLE... order_info" />
+              <marker date="1558710076705" expanded="true" signature="43565:43759" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="45669:45798" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="45837:46133" ph="CREATE TABLE... sequence_info" />
+              <marker date="1558710076705" expanded="true" signature="46165:46220" ph="INSERT INTO `sequence_info`... " />
+              <marker date="1558710076705" expanded="true" signature="46317:46511" ph="..." />
+              <marker date="1558710076705" expanded="true" signature="46684:46814" ph="..." />
             </folding>
           </first_editor>
           <second_editor />
@@ -1441,14 +1369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="510" column="0" lean-forward="false" selection-start-line="510" selection-start-column="0" selection-end-line="510" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.6.RELEASE/spring-core-5.1.6.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1496,7 +1416,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/ItemStockDOMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1509,31 +1429,265 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="38" column="54" lean-forward="false" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+        <state relative-caret-position="292">
+          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/UserPasswordDOMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="62" column="132" lean-forward="false" selection-start-line="62" selection-start-column="132" selection-end-line="62" selection-end-column="132" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1558353876335" expanded="true" signature="1084:1201" ph="select from user_password" />
+            <marker date="1558353876335" expanded="true" signature="1513:1622" ph="select from user_password" />
+            <marker date="1558353876335" expanded="true" signature="1905:1968" ph="delete from user_password... " />
+            <marker date="1558353876335" expanded="true" signature="2307:2477" ph="insert into user_password... " />
+            <marker date="1558353876335" expanded="true" signature="3750:4035" ph="update user_password... " />
+            <marker date="1558353876335" expanded="true" signature="4345:4508" ph="update user_password... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-generator.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="81" column="50" lean-forward="false" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+        <state relative-caret-position="241">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="92" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/PromoDOMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/PromoDOMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="149" column="4" lean-forward="false" selection-start-line="149" selection-start-column="4" selection-end-line="149" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1558705729877" expanded="true" signature="1331:1441" ph="select from promo" />
+            <marker date="1558705729877" expanded="true" signature="1752:1853" ph="select from promo" />
+            <marker date="1558705729877" expanded="true" signature="2136:2191" ph="delete from promo... " />
+            <marker date="1558705729877" expanded="true" signature="2482:2788" ph="insert into promo... " />
+            <marker date="1558705729877" expanded="true" signature="4460:5036" ph="update promo... " />
+            <marker date="1558705729877" expanded="true" signature="5339:5645" ph="update promo... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dataobject/PromoDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/ItemServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+        <state relative-caret-position="451">
+          <caret line="117" column="8" lean-forward="false" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/ItemModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding>
+            <element signature="e#1895#1896#0" expanded="true" />
+            <element signature="e#1928#1929#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2028#2029#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/viewobject/ItemVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="e#1120#1121#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1194#1195#0" expanded="true" />
+            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1318#1319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/ItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="65" column="6" lean-forward="false" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/html/getitem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-257">
+          <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/OrderModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+          <folding>
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1538#1539#0" expanded="true" />
+            <element signature="e#1576#1577#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dao/OrderDOMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/OrderDOMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="126" column="35" lean-forward="true" selection-start-line="126" selection-start-column="35" selection-end-line="126" selection-end-column="35" />
+          <folding>
+            <marker date="1558708845692" expanded="true" signature="1579:1685" ph="select from order_info" />
+            <marker date="1558708845692" expanded="true" signature="1967:2027" ph="delete from order_info... " />
+            <marker date="1558708845692" expanded="true" signature="2318:2633" ph="insert into order_info... " />
+            <marker date="1558708845692" expanded="true" signature="4419:4970" ph="update order_info... " />
+            <marker date="1558708845692" expanded="true" signature="5273:5562" ph="update order_info... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="37" column="4" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.6.RELEASE/spring-core-5.1.6.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/OrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/dataobject/OrderDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding>
+            <element signature="e#1610#1611#0" expanded="true" />
+            <element signature="e#1657#1658#0" expanded="true" />
+            <element signature="e#1695#1696#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/model/PromoModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#798#799#0" expanded="true" />
+            <element signature="e#836#837#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1028#1029#0" expanded="true" />
+            <element signature="e#1076#1077#0" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1148#1149#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1222#1223#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
+            <element signature="e#1303#1304#0" expanded="true" />
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="e#1456#1457#0" expanded="true" />
+            <element signature="e#1490#1491#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+            <element signature="e#1564#1565#0" expanded="true" />
+            <element signature="e#1600#1601#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/PromoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/miaoshaproject/service/impl/PromoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

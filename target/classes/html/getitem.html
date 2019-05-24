@@ -11,7 +11,7 @@
 <div class="content">
     <h3 class="form-title">商品详情</h3>
     <div id="promoStartDateContainer" class="form-group">
-        <label style="color:blue" id="promoStatus" class="control-label">秒杀开始时间</label>
+        <label style="color:blue" id="promoStatus" class="control-label"></label>
         <div>
             <label style="color:red" class="control-label" id="promoStartDate" />
         </div>
@@ -144,7 +144,7 @@
             $("#createOrder").attr("disabled", true);
         } else if (g_itemVO.promoStatus == 2) {
             // 秒杀活动进行中
-            $("#promoStartDate").text("秒杀活动进行中");
+            $("#promoStartDate").text("秒杀正在进行中");
             $("#promoPrice").text(g_itemVO.promoPrice);
             $("#createOrder").attr("disabled", false);
             $("#normalPriceContainer").hide();

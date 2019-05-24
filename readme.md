@@ -1972,3 +1972,339 @@ public void increaseSales(Integer itemId, Integer amount) throws BusinessExcepti
 }
 ```
 
+6.最终的OrderServiceImpl
+
+```java
+@Override
+@Transactional
+public OrderModel createOrder(Integer userId, Integer itemId, Integer amount) throws BusinessException {
+    //1.校验下单状态，下单的商品是否存在，用户是否合法，购买数量是否正确
+    ItemModel itemModel = itemService.getItemById(itemId);
+    if (itemModel == null) {
+        throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "商品信息不存在");
+    }
+
+    UserModel userModel = userService.getUserById(userId);
+    if (userModel == null) {
+        throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "用户信息不存在");
+    }
+
+    if (amount <= 0 || amount > 99) {
+        throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "数量信息不存在");
+    }
+
+    //2.落单减库存
+    boolean result = itemService.decreaseStock(itemId, amount);
+    if (!result) {
+        throw new BusinessException(EmBusinessError.STOCK_NOT_ENOUGH);
+    }
+
+    //3.订单入库
+    OrderModel orderModel = new OrderModel();
+    orderModel.setUserId(userId);
+    orderModel.setItemId(itemId);
+    orderModel.setAmount(amount);
+    orderModel.setItemPrice(itemModel.getPrice());
+    orderModel.setOrderPrice(itemModel.getPrice().multiply(BigDecimal.valueOf(amount)));
+
+    //生成交易流水号
+    orderModel.setId(generateOrderNo());
+    OrderDO orderDO = this.convertFromOrderModel(orderModel);
+    orderDOMapper.insertSelective(orderDO);
+    //加上商品的销量
+    itemService.increaseSales(itemId, amount);
+
+    //4.返回前端
+    return orderModel;
+}
+```
+
+7.controller层
+
+```java
+//封装下单请求
+@RequestMapping(value = "/createorder", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
+@ResponseBody
+public CommonReturnType createOrder(@RequestParam(name = "itemId") Integer itemId,
+                                    @RequestParam(name = "amount") Integer amount) throws BusinessException {
+
+    //获取用户登录信息
+    Boolean isLogin = (Boolean) httpServletRequest.getSession().getAttribute("IS_LOGIN");
+    if (isLogin == null || !isLogin.booleanValue()) {
+        throw new BusinessException(EmBusinessError.USER_NOT_LOGIN, "用户还未登录，不能下单");
+    }
+    UserModel userModel = (UserModel) httpServletRequest.getSession().getAttribute("LOGIN_USER");
+
+
+    OrderModel orderModel = orderService.createOrder(userModel.getId(), itemId, amount);
+
+    return CommonReturnType.create(null);
+}
+```
+
+##	第六章 秒杀模块开发
+
+###	6.1 秒杀模型管理——活动模型创建
+
+1.使用joda-time
+
+```xml
+<dependency>
+  <groupId>joda-time</groupId>
+  <artifactId>joda-time</artifactId>
+  <version>2.9.1</version>
+</dependency>
+```
+
+2.创建活动模型
+
+```java
+public class PromoModel {
+    private Integer id;
+
+    //秒杀活动状态：1表示还未开始，2表示正在进行，3表示已结束
+    private Integer status;
+
+    
+    //秒杀活动名称
+    private String promoName;
+
+    //秒杀活动的开始时间
+    private DateTime startDate;
+
+    //秒杀活动的结束时间
+    private DateTime endDate;
+
+    //秒杀活动的适用商品
+    private Integer itemId;
+
+    //秒杀活动的商品价格
+    private BigDecimal promoItemPrice;
+```
+
+3.设计数据库
+
+```sql
+CREATE TABLE `promo`  (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `promo_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `start_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `end_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `item_id` int(11) NOT NULL DEFAULT 0,
+  `promo_item_price` decimal(10, 2) NOT NULL DEFAULT 0.00,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+```
+
+4.mybatis逆向工程
+
+```xml
+<table tableName="promo" domainObjectName="PromoDO"
+       enableCountByExample="false"
+       enableUpdateByExample="false"
+       enableDeleteByExample="false"
+       enableSelectByExample="false"
+       selectByExampleQueryId="false" ></table>
+```
+
+##	6.2 秒杀模型管理——活动模型与商品模型结合
+
+1.service
+
+秒杀服务根据商品id，查询得到当前的活动以及其价格
+
+PromoService
+
+```java
+PromoModel getPromoByItemId(Integer itemId);
+```
+
+PromoServiceImpl
+
+```java
+@Service
+public class PromoServiceImpl implements PromoService {
+
+    @Autowired
+    private PromoDOMapper promoDOMapper;
+
+
+
+    //根据iremId获取即将开始的或者正在进行的活动
+    @Override
+    public PromoModel getPromoByItemId(Integer itemId) {
+
+        //获取商品对应的秒杀信息
+        PromoDO promoDO = promoDOMapper.selectByItemId(itemId);
+
+        //dataobject->model
+        PromoModel promoModel = convertFromDataObject(promoDO);
+        if (promoModel == null) {
+            return null;
+        }
+
+        //判断当前时间是否秒杀活动即将开始或正在进行
+        DateTime now = new DateTime();
+        if (promoModel.getStartDate().isAfterNow()) {
+            promoModel.setStatus(1);
+        } else if (promoModel.getEndDate().isBeforeNow()) {
+            promoModel.setStatus(3);
+        } else {
+            promoModel.setStatus(2);
+        }
+
+        return promoModel;
+    }
+
+    private PromoModel convertFromDataObject(PromoDO promoDO) {
+        if (promoDO == null) {
+            return null;
+        }
+        PromoModel promoModel = new PromoModel();
+        BeanUtils.copyProperties(promoDO, promoModel);
+        promoModel.setStartDate(new DateTime(promoDO.getStartDate()));
+        promoModel.setEndDate(new DateTime(promoDO.getEndDate()));
+
+        return promoModel;
+    }
+}
+```
+
+2.使用聚合模型，在ItemModel上添加属性
+
+```java
+//使用聚合模型，如果promoModel不为空，则表示其拥有还未结束的秒杀活动
+private PromoModel promoModel;
+```
+
+更改ItemServiceImpl
+
+```java
+@Override
+public ItemModel getItemById(Integer id) {
+    ItemDO itemDO = itemDOMapper.selectByPrimaryKey(id);
+    if (itemDO == null) {
+        return null;
+    }
+    //操作获得库存数量
+    ItemStockDO itemStockDO = itemStockDOMapper.selectByItemId(itemDO.getId());
+
+    //将dataobject-> Model
+    ItemModel itemModel = convertModelFromDataObject(itemDO, itemStockDO);
+
+    //获取活动商品信息
+    PromoModel promoModel = promoService.getPromoByItemId(itemModel.getId());
+    if (promoModel != null && promoModel.getStatus().intValue() != 3) {
+        itemModel.setPromoModel(promoModel);
+    }
+    return itemModel;
+}
+```
+
+同时修改ItemVO
+
+```java
+//商品是否在秒杀活动中，以及对应的状态：0表示没有秒杀活动，1表示秒杀活动等待开始，2表示进行中
+private Integer promoStatus;
+
+//秒杀活动价格
+private BigDecimal promoPrice;
+
+//秒杀活动id
+private Integer promoId;
+
+//秒杀活动开始时间
+private String startDate;
+```
+
+修改ItemController
+
+```java
+private ItemVO convertVOFromModel(ItemModel itemModel) {
+    if (itemModel == null) {
+        return null;
+    }
+    ItemVO itemVO = new ItemVO();
+    BeanUtils.copyProperties(itemModel, itemVO);
+    if (itemModel.getPromoModel() != null) {
+        itemVO.setPromoStatus(itemModel.getPromoModel().getStatus());
+        itemVO.setPromoId(itemModel.getPromoModel().getId());
+                   itemVO.setStartDate(itemModel.getPromoModel().getStartDate().
+                    toString(DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")));
+        itemVO.setPromoPrice(itemModel.getPromoModel().getPromoItemPrice());
+    } else {
+        itemVO.setPromoStatus(0);
+    }
+    return itemVO;
+}
+```
+
+3.修改前端界面
+
+4.修改OrderModel
+
+增加秒杀价格字段
+
+```java
+//若非空，则表示是以秒杀商品方式下单
+private Integer promoId;
+
+//购买时商品的单价,若promoId非空，则表示是以秒杀商品方式下单
+private BigDecimal itemPrice;
+```
+
+然后在数据库中，DO中，DOMapper中增加此字段
+
+5.改造下单接口
+
+```java
+//1.通过url上传过来秒杀活动id，然后下单接口内校验对应id是否属于对应商品且活动已开始
+//2.直接在下单接口内判断对应的商品是否存在秒杀活动，若存在进行中的则以秒杀价格下单
+//倾向于使用第一种形式，因为对同一个商品可能存在不同的秒杀活动，而且第二种方案普通销售的商品也需要校验秒杀
+OrderModel createOrder(Integer userId, Integer itemId, Integer promoId, Integer amount) throws BusinessException;
+```
+
+实现
+
+```java
+//校验活动信息
+        if (promoId != null) {
+            //(1)校验对应活动是否存在这个适用商品
+            if (promoId.intValue() != itemModel.getPromoModel().getId()) {
+                throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "活动信息不正确");
+                //(2)校验活动是否正在进行中
+            } else if (itemModel.getPromoModel().getStatus() != 2) {
+                throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "活动信息不正确");
+            }
+        }
+
+        //2.落单减库存
+        boolean result = itemService.decreaseStock(itemId, amount);
+        if (!result) {
+            throw new BusinessException(EmBusinessError.STOCK_NOT_ENOUGH);
+        }
+
+        //3.订单入库
+        OrderModel orderModel = new OrderModel();
+        orderModel.setUserId(userId);
+        orderModel.setItemId(itemId);
+        orderModel.setPromoId(promoId);
+        orderModel.setAmount(amount);
+
+        if (promoId != null) {
+            orderModel.setItemPrice(itemModel.getPromoModel().getPromoItemPrice());
+        } else {
+            orderModel.setItemPrice(itemModel.getPrice());
+        }
+
+        orderModel.setOrderPrice(orderModel.getItemPrice().multiply(BigDecimal.valueOf(amount)));
+```
+
+在controller层添加参数
+
+```java
+@RequestParam(name = "promoId",required = false) Integer promoId,
+```
+
+进行测试
+
