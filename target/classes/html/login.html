@@ -70,6 +70,7 @@
                 success:function (data) {
                     if (data.status=="success") {
                         alert("登录成功");
+                        window.location.href = "listitem.html";
                     }else {
                         alert("登录失败，原因为" + data.data.errMsg);
                     }

@@ -1714,5 +1714,261 @@ public CommonReturnType listItem() {
 
 ##	第五章 交易模块开发
 
+###	5.1 交易模型管理——交易模型创建
 
+1.先设计用户下单的交易模型
+
+```java
+//用户下单的交易模型
+public class OrderModel {
+    //交易单号，例如2019052100001212，使用string类型
+    private String id;
+
+    //购买的用户id
+    private Integer userId;
+
+    //购买的商品id
+    private Integer itemId;
+
+    //购买时商品的单价
+    private BigDecimal itemPrice;
+
+    //购买数量
+    private Integer amount;
+
+    //购买金额
+    private BigDecimal orderPrice;
+    
+    ...
+}
+```
+
+2.设计数据库
+
+```sql
+CREATE TABLE `order_info`  (
+  `id` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `user_id` int(11) NOT NULL DEFAULT 0,
+  `item_id` int(11) NOT NULL DEFAULT 0,
+  `item_price` decimal(10, 2) NOT NULL DEFAULT 0.00,
+  `amount` int(11) NOT NULL DEFAULT 0,
+  `order_price` decimal(40, 2) NOT NULL DEFAULT 0.00,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+```
+
+3.修改配置
+
+```xml
+<table tableName="order_info" domainObjectName="OrderDO"
+       enableCountByExample="false"
+       enableUpdateByExample="false"
+       enableDeleteByExample="false"
+       enableSelectByExample="false"
+       selectByExampleQueryId="false" ></table>
+```
+
+4.生成文件
+
+在终端运行``` mvn mybatis-generator:generate```命令
+
+###	5.2 交易模型管理——交易下单
+
+1.OrderService
+
+```java
+public interface OrderService {
+
+    OrderModel createOrder(Integer userId, Integer itemId, Integer amount) throws BusinessException;
+}
+```
+
+2.OrderServiceImpl
+
+```java
+@Override
+@Transactional
+public OrderModel createOrder(Integer userId, Integer itemId, Integer amount) throws BusinessException {
+    //1.校验下单状态，下单的商品是否存在，用户是否合法，购买数量是否正确
+    ItemModel itemModel = itemService.getItemById(itemId);
+    if (itemModel == null) {
+        throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "商品信息不存在");
+    }
+
+    UserModel userModel = userService.getUserById(userId);
+    if (userModel == null) {
+        throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "用户信息不存在");
+    }
+
+    if (amount <= 0 || amount > 99) {
+        throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "数量信息不存在");
+    }
+
+    //2.落单减库存
+    boolean result = itemService.decreaseStock(itemId, amount);
+    if (!result) {
+        throw new BusinessException(EmBusinessError.STOCK_NOT_ENOUGH);
+    }
+
+    //3.订单入库
+
+    //4.返回前端
+}
+```
+
+3.落单减库存
+
+* ItemService
+
+  ```java
+  //库存扣减
+  boolean decreaseStock(Integer itemId, Integer amount) throws BusinessException;
+  ```
+
+* ItemServiceImpl
+
+  ```java
+     @Override
+      @Transactional
+      public boolean decreaseStock(Integer itemId, Integer amount) throws BusinessException {
+          int affectedRow = itemStockDOMapper.decreaseStock(itemId, amount);
+          if (affectedRow > 0) {
+              //更新库存成功
+              return true;
+          } else {
+              //更新库存失败
+              return false;
+          }
+      }
+  
+  ```
+
+* ItemStockMapper
+
+  ```java
+      int decreaseStock(@Param("itemId") Integer itemId, @Param("amount") Integer amount);
+  ```
+
+* ItemStockMapper.xml
+
+  ```xml
+  
+    <update id="decreaseStock">
+  
+      update item_stock
+      set stock = stock-#{amount}
+      where item_id = #{item_id} and stock>=#{amount}
+    </update>
+  
+  ```
+
+4.生成交易流水号
+
+新建一个数据库
+
+```sql
+CREATE TABLE `sequence_info`  (
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `current_value` int(11) NOT NULL DEFAULT 0,
+  `step` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`name`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+```
+
+插入一条语句，用来生成当前流水号
+
+```sql
+INSERT INTO `sequence_info` VALUES ('order_info', 0, 1);
+```
+
+修改mybatis-generator
+
+```xml
+<table tableName="sequence_info" domainObjectName="SequenceDO"
+       enableCountByExample="false"
+       enableUpdateByExample="false"
+       enableDeleteByExample="false"
+       enableSelectByExample="false"
+       selectByExampleQueryId="false" ></table>
+```
+
+在终端运行``` mvn mybatis-generator:generate```命令
+
+修改SequenceDOMapper.xml
+
+```xml
+<select id="getSequenceByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from sequence_info
+  where name = #{name,jdbcType=VARCHAR} for update
+</select>
+```
+
+添加方法
+
+```java
+SequenceDO getSequenceByName(String name);
+```
+
+
+
+```java
+private String generateOrderNo() {
+    //订单有16位
+    StringBuilder stringBuilder = new StringBuilder();
+    //前8位为时间信息，年月日
+    LocalDateTime now = LocalDateTime.now();
+    String nowDate = now.format(DateTimeFormatter.ISO_DATE).replace("-", "");
+    stringBuilder.append(nowDate);
+
+    //中间6位为自增序列
+    //获取当前sequence
+    int sequence = 0;
+    SequenceDO sequenceDO = sequenceDOMapper.getSequenceByName("order_info");
+
+    sequence = sequenceDO.getCurrentValue();
+    sequenceDO.setCurrentValue(sequenceDO.getCurrentValue() + sequenceDO.getStep());
+    sequenceDOMapper.updateByPrimaryKeySelective(sequenceDO);
+    //拼接
+    String sequenceStr = String.valueOf(sequence);
+    for (int i = 0; i < 6 - sequenceStr.length(); i++) {
+        stringBuilder.append(0);
+    }
+    stringBuilder.append(sequenceStr);
+
+    //最后两位为分库分表位,暂时不考虑
+    stringBuilder.append("00");
+
+    return stringBuilder.toString();
+}
+```
+
+5.销量增加
+
+itemDOMapper.xml
+
+```xml
+<update id="increaseSales">
+  update item
+  set sales = sales+ #{amount}
+  where id = #{id,jdbcType=INTEGER}
+</update>
+```
+
+itemDOMapper
+
+```java
+int increaseSales(@Param("id") Integer id, @Param("amount") Integer amount);
+```
+
+ItemServiceImpl
+
+```java
+@Override
+@Transactional
+public void increaseSales(Integer itemId, Integer amount) throws BusinessException {
+    itemDOMapper.increaseSales(itemId,amount);
+}
+```
 

@@ -98,7 +98,7 @@
                 data: {
                     "itemId": g_itemVO.id,
                     "promoId": g_itemVO.promoId,
-                    "amount": 1,
+                    "amount": 1,//暂时写死为一件
                 },
                 xhrFields:{
                     withCredentials:true
@@ -108,7 +108,7 @@
                         alert("下单成功");
                         window.location.reload();
                     } else {
-                        alert("下单失败，原因为" + data.data.errMsg + data.data.errCode);
+                        alert("下单失败，原因为" + data.data.errMsg);
                         if (data.data.errCode == 20003) {
                             window.location.href="login.html";
                         }

@@ -50,7 +50,7 @@
                enableSelectByExample="false"
                selectByExampleQueryId="false" ></table>-->
 
-        <table tableName="item" domainObjectName="ItemDO"
+<!--        <table tableName="item" domainObjectName="ItemDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
@@ -61,9 +61,22 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
+               selectByExampleQueryId="false" ></table>-->
+
+
+<!--        <table tableName="order_info" domainObjectName="OrderDO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false" ></table>-->
+
+        <table tableName="sequence_info" domainObjectName="SequenceDO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
                selectByExampleQueryId="false" ></table>
-
-
 
     </context>
 </generatorConfiguration>
