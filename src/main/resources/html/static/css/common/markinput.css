@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+
+
+[contentEditable=true]:empty:before{
+    content:attr(data-placeHolder);
+  	color:#C7C7C7;
+}
+[contentEditable=true]{
+	min-width: 100px;
+}
+
+
+
+
+
+
+#drMarkInputContent{
+	font-size:14px;
+	color:black;
+	display:block;
+	outline:none !important;
+	padding:8px 0px 8px 0px;
+	margin-bottom:10px;
+
+}
+
+#drMarkInputContentContainer{
+	display:inline-block;
+}
+
+
+.drMarkSpanContainer{
+	font-size:14px;
+	color:#797979;
+	background-color:#F5F5F5;
+	border:1px solid #E1E1E1;
+	border-radius:4px;
+	padding:7px 13px 6px 13px;
+	margin-right:15px;
+	display:inline-block;
+	margin-bottom:10px;
+	cursor:pointer;
+	
+}
+
+.drMarkSpanContainer:hover,
+.drMarkSpanContainer:active{
+	color:white;
+	background-color:#386395;
+	border:1px solid #386395;
+	
+}
+
+#drMarkInputErrorPopoverContent{
+	font-size:13px;
+}
+
+#drMarkInputPopoverSearch{
+	padding:0px;
+	margin:0px;
+	list-style: none;
+}
+
+#drMarkInputPopoverSearch li{
+	padding:7px 10px 7px 10px;
+	font-size:12px;
+	cursor:pointer;
+
+}
+
+.drMarkInputPopoverSearchList span{
+	color:rgba(0,0,0,0.44);
+}
+
+
+.drMarkInputPopoverSearchList span strong{
+	color:black;
+}
+
+.drMarkInputPopoverSearchList.isActive{
+	background-color:#F0F0F0;
+}
+
+
+
+
+#drMarkInputContentContainer+.popover{
+	padding:0px;
+	
+}
+
+#drMarkInputContentContainer+.popover .popover-content{
+	padding:0px;
+	overflow: hidden;
+}
+

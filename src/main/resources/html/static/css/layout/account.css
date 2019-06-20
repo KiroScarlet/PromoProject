@@ -1,0 +1,39 @@
+.left-container{
+  text-align: center;
+  padding: 20px 40px;
+  margin-top: 40px;
+}
+.left-container .big-avatar{
+  border: 1px solid #BFBFBF;
+  width: 90px;
+  border-radius: 50px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 18px;
+}
+.left-container .name{
+  font-size: 18px;
+  padding-bottom: 30px;
+  margin: 0 70px;
+  border-bottom: 1px solid #DDDDDD;
+}
+.left-container .left-nav{
+  margin-top: 25px;
+  list-style: none;
+  padding-left: 0;
+}
+.left-container .left-nav>li{
+  padding: 8px 0;
+}
+
+.right-container{
+  margin-top: 60px;
+  margin-bottom: 70px;
+}
+.right-container .form-profile-info{
+  width: 40%;
+}
+.right-container .form-profile-info .subtitle{
+  color: #969696;
+  margin-top: 6px;
+}

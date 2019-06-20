@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1460512524_2882278.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1460512524_2882278.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1460512524_2882278.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1460512524_2882278.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1460512524_2882278.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.iconfont{
+	font-family:"iconfont";	
+	font-style:normal;
+}
+
+a.normal{
+	color: #2f2f2f;
+}
+a.normal:hover, a.normal:focus{
+	color: #1dc78e;
+}
+a.hl{
+	color: #1dc78e;
+}
+a.hl:hover, a.hl:active{
+	color: #0F9C6D;
+}
+
+.modal-content{
+	background-color: #f4f4f4;
+}
+
+
+/* navbar */
+.navbar {
+	position: relative;
+	margin-bottom: 0;
+	border: 0;
+}
+.brand{
+	margin: auto;
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 50px;
+	height: 20px;
+}
+.brand a{
+	color: #fff;
+}
+.nav-form {
+	margin-bottom: 0;
+}
+.nav-form input{
+	padding: 6px 15px;
+	margin: auto 0;
+	font-size: 13px;
+	border-radius: 15px;
+	margin-top: 10px;
+	border: none;
+}
+.navbar-nav>li>a:hover{
+	background-color: #030303 !important;
+}
+.navbar-nav>li .box-number{
+  margin-left: 8px;
+}
+.navbar-nav>li i{
+	font-size: 20px;
+}
+.navbar-nav>.dropdown{
+	width: 160px;
+}
+.navbar-nav>.dropdown.open>a{
+	background-color: #030303;
+}
+img.avatar{
+	height: 22px;
+	width: 22px;
+	border-radius: 11px;
+	margin-right: 12px;
+	border: 1px solid #979797;
+	display: inline-block;
+}
+
+/* tab导航：UI/APP/我的订阅 */
+.nav-header{
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	background: #fff;
+	margin-bottom: 20px;
+}
+.nav-tabs>li{
+	width: 100px;
+	text-align: center;
+}
+.nav-tabs>li>a{
+	color: #969696;
+	padding: 0 15px;
+	margin-right: 0;
+	height: 52px;
+	line-height: 50px;
+	border-radius: 0;
+}
+.nav-tabs .btn-upload{
+	width: 140px;
+	border-left: 1px solid rgba(0,0,0,0.1);
+	border-right: 1px solid rgba(0,0,0,0.1);
+}
+.nav-tabs .btn-upload>a{
+	color: #1DC78E;
+}
+.nav-tabs .btn-upload i{
+	margin-right: 8px;
+}
+.nav-tabs>li>a:hover, .nav-tabs>li>a:focus{
+	background-color: rgba(29,199,142,0.1);
+}
+.nav-tabs>li.active>a{
+	border-bottom: 3px solid #1DC78E;
+}
+.nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
+	border-bottom: 3px solid #1DC78E;
+}
+
+/* footer */
+.footer{
+	background: #fff;
+	border-top: 1px solid #e5e5e5;
+	padding: 30px 0 20px;
+}
+.footer p{
+	color: #969696;
+}
+.footer .egggo-total{
+	background-image: url(../images/icon.png);
+	background-size: 46px 55px;
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	box-sizing: border-box;
+	float: right;
+	width: 15%;
+	min-height: 56px;
+	padding-left: 56px;
+	color: #969696;
+}
+.footer .egggo-total strong{
+	display: block;
+	color: #2F2F2F;
+	margin-bottom: 4px;
+	font-size: 22px;
+}
+.footer .copyright{
+	margin-top: 50px;
+}
+
+/* 带app名称的截图 */
+.egggos{
+	margin-bottom: 40px;
+	overflow: hidden;
+	padding-left: 20px;
+}
+.egggo-item{
+	width: 30%;
+	position: relative;
+	float: left;
+	padding: 10px;
+	margin: 0 15px 30px 15px;
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	list-style: none;
+}
+.egggo-item .shot{
+	margin-bottom: 12px;
+}
+.egggo-item .shot img{
+	width: 100%;
+}
+.egggo-item .egggo-app-name{
+	font-size: 18px;
+	color: #969696;
+	margin-right: 12px;
+	line-height: 34px;
+}
+.egggo-item .egggo-app-name:hover{
+	color: #1DC78E;
+}
+.egggo-item .btn-add i{
+  font-size: 24px;
+  color: #1DC78E;
+}
+.egggo-item .btn-add:hover i{
+	color: #0F9C6D;
+}
+
+/* input textfield */
+input.no-shadow{
+	outline: none;
+}
+input.no-shadow:focus, input.no-shadow:active{
+	box-shadow: none;
+}
+input{
+	border: 0 !important;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+}
+input:focus, input:active{
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+textarea{
+	outline: none;
+	border: 0 !important;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+	resize: none;
+}

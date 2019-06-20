@@ -1,0 +1,76 @@
+.app-container{
+  margin: 40px auto 80px;
+}
+.app-container .left-container{
+  padding-left: 40px;
+}
+
+.basic-info{
+  margin-bottom: 40px;
+}
+.basic-info .app-icon{
+  width: 60px;
+  margin-right: 14px;
+}
+.basic-info .app-icon img{
+  border-radius: 4px;
+}
+.basic-info h4{
+  word-break: break-word;
+}
+.basic-info span{
+  color: #969696;
+}
+
+.btn-group{
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.btn-group>a{
+  display: block;
+}
+.btn-group>a>i{
+  margin-right: 8px;
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+.sort-group{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.sort-group a{
+  display: block;
+}
+.sort-group a:first-child{
+  margin-bottom: 10px;
+}
+.sort-group .active{
+  color: #1dc78e;
+}
+
+.tag-group{
+  list-style: none;
+  padding-left: 0;
+}
+.tag-group>li{
+  display: table;
+  margin-bottom: 15px;
+  border: 1px solid #969696;
+  line-height: 28px;
+  padding: 0 15px;
+  border-radius: 15px;
+}
+.tag-group .tag{
+  color: #969696;
+}
+.tag-group>li.active, .tag-group>li:hover{
+  border: 1px solid #1dc78e;
+  background: #1dc78e;
+}
+.tag-group>li.active .tag, .tag-group>li:hover .tag{
+  color: #fff;
+}

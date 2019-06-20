@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+
+header{
+	padding-left: 37px;
+	padding-right: 30px;
+	height: 64px;
+	width: 100%;
+	position: relative;
+	z-index: 99 !important;
+	font-size: 15px;
+	border-bottom: 1px solid #EDEDED;
+}
+
+header>.logo{
+	height: 64px;
+	line-height: 64px;
+	float: left;
+}
+
+header>.logo>img{
+	width: 187px;
+	height: 38px;
+}
+
+header>nav{
+	float: right;
+}
+
+header>nav>ul>li{
+	margin-left: 28px;
+	display: inline-block;
+}
+
+.loginBtn{
+	width: 105px;
+	height: 38px;
+	font-size: 15px;
+	color:#FF9B34;
+	background-color:rgba(0,0,0,0);
+}
+
+header a,
+header a:link,
+header a:visited{
+	color: #7A7A7A;
+}
+
+header a:hover,
+header a:active,
+header a.active{
+	color: #FF9B34;
+}
+
+#drNavbarUser{
+	width: 38px;
+	height: 38px;
+	cursor:pointer;
+	outline:none !important;
+}
+
+.drNavbarDropDown{
+	margin-top: 13px;
+	position:relative;
+}
+.drNavbarDropDownMenu{
+	list-style:none;
+	width:100%;
+}
+.drNavbarDropDownMenu li{
+	margin-top: 10px;
+	display:block;
+}
+.drNavbarDropDownMenu .divider{
+	background-color:#EEEEEE;
+}
+.drNavbarDropDownMenu span{
+	vertical-align:middle;
+}
+.drNavbarPopover{
+	position:absolute;
+	padding:15px;
+	top:40px;
+	left:-90px;
+	min-width:150px;
+}
+.drNavbarPopoverInner{
+	padding:5px 20px 15px;
+	background-color:white;
+	border-radius:4px;
+	box-shadow:0 1px 2px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.35);
+}
+.drNavbarPopoverArrow{
+	position:absolute;
+	top:0px;
+	left: 100px;
+	-webkit-transform:rotate(45deg) translate(6px, 6px);
+	-ms-transform:rotate(45deg) translate(6px, 6px);
+	transform:rotate(45deg) translate(6px, 6px);
+	box-shadow:-1px -1px 1px -1px rgba(0,0,0,0.44);
+}
+.drNavbarPopoverArrow:after{
+	content:'';
+	display:block;
+	width:14px;
+	height:14px;
+	background-color:white;
+}
+.unreadMsgCount{
+	color:white !important;
+	background-color:#FC3939;
+	font-size:10px !important;
+	display:none;
+	width:20px;
+	height:20px;
+	text-align: center;
+	line-height: 20px;
+	border-radius:10px;
+	position:absolute;
+	letter-spacing: 0px;
+	top: -15px;
+	right: -8px;
+}
+
+#unreadLetterCount{
+	top: 0;
+	left: 60px;
+}

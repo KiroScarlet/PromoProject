@@ -1,0 +1,17 @@
+/***--LAYOUT4--***/
+/**--main-content--**/
+#main-content{
+	margin-top: 0.1875rem;
+}
+#main-content .container{
+	margin: 0 auto;
+	width: 64rem;
+	height: 30rem;
+	/*background: #fafaf7;*/
+}
+
+/**--footer--**/
+#footer{
+	height: 3.75rem;
+	line-height: 3.75rem;
+}
