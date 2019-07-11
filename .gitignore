@@ -9,7 +9,7 @@ out
 gen
 
 /target/
-
+/.idea/
 #target
 
 #.gitignore
