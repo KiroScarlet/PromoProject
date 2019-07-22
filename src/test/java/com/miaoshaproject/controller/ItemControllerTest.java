@@ -28,19 +28,5 @@ public class ItemControllerTest {
 
     @Test
     public void test() {
-        ItemDO itemDO = new ItemDO();
-        itemDO.setTitle("123");
-        itemDO.setPrice(BigDecimal.valueOf(123.233));
-        itemDO.setDescription("123123");
-        itemDO.setImgUrl("1111");
-
-
-
-//        itemDOMapper.insertSelective(itemDO);
-
-
-        UserDO userDO = userDOMapper.selectByTelphone(String.valueOf(123));
-        System.out.println(userDO);
-        userDOMapper.insert(userDO);
     }
 }

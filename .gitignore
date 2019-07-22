@@ -7,9 +7,9 @@
 *.iml
 out
 gen
-
+target
 /target/
 /.idea/
-#target
+
 
 #.gitignore
