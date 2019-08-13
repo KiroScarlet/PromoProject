@@ -1,5 +1,3 @@
-慕课网SpringBoot构建电商基础秒杀项目，课程地址https://www.imooc.com/learn/1079
-
 我的博客地址https://blog.csdn.net/m0_37657841/article/details/90524410
 
 ##	第一章 课程介绍
